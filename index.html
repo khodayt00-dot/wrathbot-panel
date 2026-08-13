@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>WRATHBOT</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Vazirmatn', Tahoma, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background: #0a0a0a;
+    color: #f0f0f0;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* بک‌گراند مشکی + قرمز + سفید */
+.bg {
+    position: fixed;
+    inset: 0;
+    background: 
+        radial-gradient(ellipse at 20% 20%, rgba(180, 0, 0, 0.25) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(120, 0, 0, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(30, 0, 0, 0.4) 0%, transparent 70%),
+        #0a0a0a;
+    z-index: -1;
+}
+
+.container {
+    max-width: 430px;
+    margin: 0 auto;
+    padding: 16px 14px 95px;
+}
+
+/* ناوبری پایین */
+.nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(10, 10, 10, 0.95);
+    border-top: 1px solid rgba(180, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 5px 14px;
+    z-index: 1000;
+}
+
+.nav button {
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 11px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding: 6px 10px;
+    border-radius: 10px;
+}
+
+.nav button.active {
+    color: #ff3333;
+    background: rgba(180, 0, 0, 0.15);
+}
+
+.nav button span {
+    font-size: 18px;
+}
+
+/* صفحات */
+.page {
+    display: none;
+}
+.page.show {
+    display: block;
+}
+
+/* هدر */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-top: 8px;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 10px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8b0000, #ff2222);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 34px;
+    box-shadow: 0 0 30px rgba(180, 0, 0, 0.5);
+    border: 2px solid rgba(255,255,255,0.1);
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #fff;
+}
+
+.subtitle {
+    color: #999;
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+/* کارت */
+.card {
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(180, 0, 0, 0.25);
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 12px;
+}
+
+.intro {
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: #ddd;
+}
+
+.intro b {
+    color: #ff4444;
+}
+
+/* گرید */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.feat {
+    background: rgba(180, 0, 0, 0.12);
+    border: 1px solid rgba(180, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.feat span {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 3px;
+}
+
+/* لیست */
+.row {
+    display: flex;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.row:last-child {
+    border-bottom: none;
+}
+
+.icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(180, 0, 0, 0.2);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.row h4 {
+    font-size: 13px;
+    margin-bottom: 2px;
+}
+
+.row p {
+    font-size: 11px;
+    color: #888;
+}
+
+.pro {
+    background: #ff2222;
+    color: #fff;
+    font-size: 9px;
+    padding: 1px 5px;
+    border-radius: 10px;
+    margin-left: 4px;
+}
+
+/* تیم */
+.team {
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 13px;
+}
+
+.team:last-child {
+    border-bottom: none;
+}
+
+.team span {
+    color: #888;
+}
+
+.team a {
+    color: #ff4444;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* دکمه */
+.btn {
+    display: block;
+    text-align: center;
+    padding: 13px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    margin-bottom: 8px;
+}
+
+.btn1 {
+    background: linear-gradient(90deg, #8b0000, #ff2222);
+    color: #fff;
+}
+
+.btn2 {
+    background: rgba(255,255,255,0.05);
+    color: #ddd;
+    border: 1px solid rgba(180, 0, 0, 0.3);
+}
+
+/* بازی */
+.game {
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(180, 0, 0, 0.25);
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 12px;
+}
+
+.game h3 {
+    font-size: 14px;
+    color: #ff6666;
+    margin-bottom: 4px;
+}
+
+.game p {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+#box {
+    height: 80px;
+    border-radius: 10px;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 600;
+    border: 2px solid #333;
+    cursor: pointer;
+}
+
+#box.ready { border-color: #ff2222; }
+#box.go { background: #00aa44; color: #fff; border-color: #00aa44; }
+#box.fail { background: #cc0000; color: #fff; }
+
+#result {
+    margin-top: 8px;
+    text-align: center;
+    font-size: 13px;
+    color: #ff6666;
+    min-height: 18px;
+}
+
+#count {
+    font-size: 36px;
+    font-weight: 800;
+    color: #ff4444;
+    text-align: center;
+    margin: 6px 0;
+}
+
+#cbtn {
+    display: block;
+    margin: 0 auto;
+    background: linear-gradient(90deg, #8b0000, #ff2222);
+    border: none;
+    color: #fff;
+    padding: 11px 36px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#timer {
+    text-align: center;
+    font-size: 12px;
+    color: #888;
+    margin-top: 6px;
+}
+
+.memory {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+}
+
+.mcard {
+    aspect-ratio: 1;
+    background: rgba(180, 0, 0, 0.15);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    border: 1px solid rgba(180, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.mcard.on, .mcard.ok {
+    background: rgba(255, 50, 50, 0.25);
+    border-color: #ff4444;
+}
+
+.mcard.ok {
+    opacity: 0.5;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 11px;
+    color: #555;
+}
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+
+<div class="container">
+
+    <!-- صفحه ۱ -->
+    <div class="page show" id="p1">
+        <div class="header">
+            <div class="logo">⚡</div>
+            <div class="title">WRATHBOT</div>
+            <div class="subtitle">v3.9.2-turbo • مدیریت گروه سروش پلاس</div>
+        </div>
+
+        <div class="card intro">
+            <b>WRATHBOT</b> یکی از کامل‌ترین ربات‌های مدیریت گروه سروش پلاسه.
+            بیش از ۳۰ قابلیت عادی + ۲۲ سلاح مدیریتی پرو.
+        </div>
+
+        <div class="grid">
+            <div class="feat"><span>🎨</span>عکس‌ساز پرو</div>
+            <div class="feat"><span>🤖</span>هوش مصنوعی</div>
+            <div class="feat"><span>🧹</span>پاکسازی</div>
+            <div class="feat"><span>📢</span>تگ ممبر</div>
+            <div class="feat"><span>⚡</span>سرعت بالا</div>
+            <div class="feat"><span>👑</span>۲۲ سلاح پرو</div>
+        </div>
+
+        <div class="card">
+            <div class="team">
+                <span>سازنده</span>
+                <a href="https://splus.ir/WRATH_HaMi">@WRATH_HaMi</a>
+            </div>
+            <div class="team">
+                <span>پشتیبان</span>
+                <a href="https://splus.ir/IShowMohi">@IShowMohi</a>
+            </div>
+            <div class="team">
+                <span>همکار</span>
+                <a href="https://splus.ir/Parnia_6">@Parnia_6</a>
+            </div>
+            <div class="team">
+                <span>کانال</span>
+                <a href="https://splus.ir/WRATHBOT">@WRATHBOT</a>
+            </div>
+        </div>
+
+        <a class="btn btn1" href="https://splus.ir/WRATHBOT">ورود به کانال رسمی</a>
+        <a class="btn btn2" href="https://splus.ir/WRATH_HaMi">ارتباط با سازنده</a>
+
+        <div class="footer">صفحه ۱ از ۴</div>
+    </div>
+
+    <!-- صفحه ۲ -->
+    <div class="page" id="p2">
+        <div class="header">
+            <div class="logo">🛠</div>
+            <div class="title">قابلیت‌های اصلی</div>
+            <div class="subtitle">مدیریت کامل گروه</div>
+        </div>
+
+        <div class="card">
+            <div class="row"><div class="icon">1</div><div><h4>پنل ادمین و هویت</h4><p>مدیریت ادمین‌ها</p></div></div>
+            <div class="row"><div class="icon">2</div><div><h4>مدیریت گروه</h4><p>کنترل تنظیمات</p></div></div>
+            <div class="row"><div class="icon">3</div><div><h4>لیست‌ها و سخنگو</h4><p>ساخت لیست و سخنگو</p></div></div>
+            <div class="row"><div class="icon">4</div><div><h4>فیلتر و قفل کلمه</h4><p>فیلتر هوشمند</p></div></div>
+            <div class="row"><div class="icon">5</div><div><h4>خوشامد و آمار</h4><p>خوشامدگویی + آمار</p></div></div>
+            <div class="row"><div class="icon">6</div><div><h4>ریپلای و میوت</h4><p>سیستم پیشرفته</p></div></div>
+            <div class="row"><div class="icon">7</div><div><h4>سکوت و بن</h4><p>مدیریت سکوت و بن</p></div></div>
+            <div class="row"><div class="icon">8</div><div><h4>قفل زمان و سرگرمی</h4><p>قفل زمانی + سرگرمی</p></div></div>
+            <div class="row"><div class="icon">9</div><div><h4>نبض گروه</h4><p>وضعیت زنده</p></div></div>
+            <div class="row"><div class="icon">10</div><div><h4>WRATH پوینت</h4><p>سیستم امتیاز</p></div></div>
+            <div class="row"><div class="icon">11</div><div><h4>کشور و یادآور</h4><p>تنظیمات کشور</p></div></div>
+            <div class="row"><div class="icon">12</div><div><h4>کنترل تخلف</h4><p>مقابله با تخلف</p></div></div>
+            <div class="row"><div class="icon">13</div><div><h4>مترجم و مهمانی</h4><p>ترجمه + مهمانی</p></div></div>
+            <div class="row"><div class="icon">14</div><div><h4>لقب و بکاپ</h4><p>لقب + پشتیبان‌گیری</p></div></div>
+        </div>
+        <div class="footer">صفحه ۲ از ۴</div>
+    </div>
+
+    <!-- صفحه ۳ -->
+    <div class="page" id="p3">
+        <div class="header">
+            <div class="logo">👑</div>
+            <div class="title">۲۲ سلاح پرو</div>
+            <div class="subtitle">PRO UNLOCK</div>
+        </div>
+
+        <div class="card">
+            <div class="row"><div class="icon">👑</div><div><h4>محافظ ادمین <span class="pro">PRO</span></h4><p>محافظت ویژه</p></div></div>
+            <div class="row"><div class="icon">⚖️</div><div><h4>دادگاه گروهی <span class="pro">PRO</span></h4><p>سیستم قضاوت</p></div></div>
+            <div class="row"><div class="icon">🛡</div><div><h4>نقش و سپر VIP <span class="pro">PRO</span></h4><p>نقش‌های ویژه</p></div></div>
+            <div class="row"><div class="icon">📡</div><div><h4>رادار اسپم <span class="pro">PRO</span></h4><p>ضد تبلیغ</p></div></div>
+            <div class="row"><div class="icon">🌙</div><div><h4>قفل شبانه <span class="pro">PRO</span></h4><p>قفل خودکار</p></div></div>
+            <div class="row"><div class="icon">📢</div><div><h4>تگ ممبر <span class="pro">PRO</span></h4><p>تگ همه</p></div></div>
+            <div class="row"><div class="icon">☠️</div><div><h4>کلمه مرگ <span class="pro">PRO</span></h4><p>هشدار فوری</p></div></div>
+            <div class="row"><div class="icon">📜</div><div><h4>تأیید قوانین <span class="pro">PRO</span></h4><p>قرنطینه</p></div></div>
+            <div class="row"><div class="icon">🤖</div><div><h4>هوش مصنوعی <span class="pro">PRO</span></h4><p>AI + عکس‌ساز</p></div></div>
+            <div class="row"><div class="icon">💰</div><div><h4>بازار پرو <span class="pro">PRO</span></h4><p>سیستم اقتصادی</p></div></div>
+            <div class="row"><div class="icon">⏰</div><div><h4>پیام زمان‌دار <span class="pro">PRO</span></h4><p>ارسال زمان‌بندی</p></div></div>
+            <div class="row"><div class="icon">🗣</div><div><h4>سخنگو دستی <span class="pro">PRO</span></h4><p>کنترل سخنگو</p></div></div>
+            <div class="row"><div class="icon">🧹</div><div><h4>پاکسازی پیشرفته <span class="pro">PRO</span></h4><p>حذف هوشمند</p></div></div>
+            <div class="row"><div class="icon">🌃</div><div><h4>رسانه شب <span class="pro">PRO</span></h4><p>امضا + رسانه</p></div></div>
+            <div class="row"><div class="icon">🎮</div><div><h4>تایم بازی <span class="pro">PRO</span></h4><p>زمان‌بندی</p></div></div>
+            <div class="row"><div class="icon">👑</div><div><h4>امپراتور <span class="pro">PRO</span></h4><p>بن هوشمند</p></div></div>
+        </div>
+        <div class="footer">صفحه ۳ از ۴</div>
+    </div>
+
+    <!-- صفحه ۴ -->
+    <div class="page" id="p4">
+        <div class="header">
+            <div class="logo">🎮</div>
+            <div class="title">مینی‌گیم‌ها</div>
+            <div class="subtitle">سه بازی خفن</div>
+        </div>
+
+        <div class="game">
+            <h3>⚡ چالش سرعت</h3>
+            <p>وقتی سبز شد سریع ضربه بزن</p>
+            <div id="box" class="ready" onclick="doReaction()">برای شروع ضربه بزن</div>
+            <div id="result"></div>
+        </div>
+
+        <div class="game">
+            <h3>🔥 کلیکر ۱۰ ثانیه</h3>
+            <p>هرچقدر می‌تونی کلیک کن</p>
+            <div id="count">0</div>
+            <button id="cbtn" onclick="doClick()">شروع / کلیک</button>
+            <div id="timer">۱۰ ثانیه وقت داری</div>
+        </div>
+
+        <div class="game">
+            <h3>🧠 حافظه</h3>
+            <p>کارت‌های مشابه رو پیدا کن</p>
+            <div class="memory" id="memory"></div>
+            <div id="mres" style="text-align:center;margin-top:8px;color:#ff6666;font-size:13px;"></div>
+        </div>
+
+        <div class="footer">صفحه ۴ از ۴</div>
+    </div>
+
+</div>
+
+<!-- دکمه‌های پایین -->
+<div class="nav">
+    <button id="b1" class="active" onclick="show(1)"><span>🏠</span>خانه</button>
+    <button id="b2" onclick="show(2)"><span>🛠</span>اصلی</button>
+    <button id="b3" onclick="show(3)"><span>👑</span>پرو</button>
+    <button id="b4" onclick="show(4)"><span>🎮</span>بازی</button>
+</div>
+
+<script>
+function show(n) {
+    // همه صفحات رو مخفی کن
+    document.getElementById('p1').classList.remove('show');
+    document.getElementById('p2').classList.remove('show');
+    document.getElementById('p3').classList.remove('show');
+    document.getElementById('p4').classList.remove('show');
+
+    // همه دکمه‌ها رو خاموش کن
+    document.getElementById('b1').classList.remove('active');
+    document.getElementById('b2').classList.remove('active');
+    document.getElementById('b3').classList.remove('active');
+    document.getElementById('b4').classList.remove('active');
+
+    // صفحه و دکمه مورد نظر رو روشن کن
+    document.getElementById('p' + n).classList.add('show');
+    document.getElementById('b' + n).classList.add('active');
+
+    window.scrollTo(0, 0);
+
+    if (n === 4) {
+        setTimeout(startMem, 50);
+    }
+}
+
+// ===== بازی سرعت =====
+var st = 'wait';
+var stime = 0;
+var tmr = null;
+
+function doReaction() {
+    var box = document.getElementById('box');
+    var res = document.getElementById('result');
+
+    if (st === 'wait' || st === 'done') {
+        st = 'ready';
+        box.className = 'ready';
+        box.innerHTML = 'صبر کن...';
+        res.innerHTML = '';
+        tmr = setTimeout(function () {
+            st = 'go';
+            box.className = 'go';
+            box.innerHTML = 'الان بزن! ⚡';
+            stime = Date.now();
+        }, 1200 + Math.random() * 2500);
+    }
+    else if (st === 'ready') {
+        clearTimeout(tmr);
+        st = 'done';
+        box.className = 'fail';
+        box.innerHTML = 'خیلی زود زدی!';
+        res.innerHTML = 'دوباره امتحان کن';
+        setTimeout(function () {
+            st = 'wait';
+            box.className = 'ready';
+            box.innerHTML = 'برای شروع ضربه بزن';
+        }, 1200);
+    }
+    else if (st === 'go') {
+        var ms = Date.now() - stime;
+        st = 'done';
+        box.className = 'ready';
+        box.innerHTML = 'آفرین!';
+        if (ms < 180) res.innerHTML = '🔥 مرگبار! ' + ms + 'ms';
+        else if (ms < 250) res.innerHTML = '⚡ عالی! ' + ms + 'ms';
+        else if (ms < 350) res.innerHTML = '👍 خوب! ' + ms + 'ms';
+        else res.innerHTML = '😐 ' + ms + 'ms';
+
+        setTimeout(function () {
+            st = 'wait';
+            box.className = 'ready';
+            box.innerHTML = 'برای شروع ضربه بزن';
+        }, 1600);
+    }
+}
+
+// ===== کلیکر =====
+var clicks = 0;
+var run = false;
+var ctmr = null;
+
+function doClick() {
+    if (!run) {
+        run = true;
+        clicks = 0;
+        document.getElementById('count').innerHTML = '0';
+        document.getElementById('cbtn').innerHTML = 'کلیک کن!';
+        var t = 10;
+        document.getElementById('timer').innerHTML = t + ' ثانیه باقی مونده';
+
+        ctmr = setInterval(function () {
+            t--;
+            document.getElementById('timer').innerHTML = t + ' ثانیه باقی مونده';
+            if (t <= 0) {
+                clearInterval(ctmr);
+                run = false;
+                document.getElementById('cbtn').innerHTML = 'دوباره';
+                document.getElementById('timer').innerHTML = 'نتیجه: ' + clicks + ' کلیک';
+            }
+        }, 1000);
+    } else {
+        clicks++;
+        document.getElementById('count').innerHTML = clicks;
+    }
+}
+
+// ===== حافظه =====
+var em = ['⚡', '🔥', '🎮', '🤖', '🎨', '💎', '🚀', '🌟'];
+var flipped = [];
+var matched = 0;
+var lock = false;
+
+function startMem() {
+    var grid = document.getElementById('memory');
+    grid.innerHTML = '';
+    matched = 0;
+    flipped = [];
+    lock = false;
+    document.getElementById('mres').innerHTML = '';
+
+    var cards = em.concat(em);
+    cards.sort(function () { return Math.random() - 0.5; });
+
+    for (var i = 0; i < cards.length; i++) {
+        var d = document.createElement('div');
+        d.className = 'mcard';
+        d.setAttribute('data-e', cards[i]);
+        d.onclick = function () { flip(this); };
+        grid.appendChild(d);
+    }
+}
+
+function flip(c) {
+    if (lock || c.classList.contains('on') || c.classList.contains('ok')) return;
+
+    c.classList.add('on');
+    c.innerHTML = c.getAttribute('data-e');
+    flipped.push(c);
+
+    if (flipped.length === 2) {
+        lock = true;
+        if (flipped[0].getAttribute('data-e') === flipped[1].getAttribute('data-e')) {
+            flipped[0].classList.add('ok');
+            flipped[1].classList.add('ok');
+            matched += 2;
+            flipped = [];
+            lock = false;
+            if (matched === 16) {
+                document.getElementById('mres').innerHTML = '🎉 آفرین! همه رو پیدا کردی';
+            }
+        } else {
+            setTimeout(function () {
+                flipped[0].classList.remove('on');
+                flipped[1].classList.remove('on');
+                flipped[0].innerHTML = '';
+                flipped[1].innerHTML = '';
+                flipped = [];
+                lock = false;
+            }, 550);
+        }
+    }
+}
+
+startMem();
+</script>
+</body>
+</html>
