@@ -269,6 +269,8 @@ body {
     font-weight: 700;
     border: 2px solid #222;
     cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
 }
 #box.ready { border-color: #d40000; }
 #box.go { background: #0a7a32; color: #fff; border-color: #0a7a32; }
@@ -642,7 +644,11 @@ input[type=range]::-webkit-slider-thumb {
         <div class="game">
             <h3>⚡ چالش سرعت</h3>
             <p>وقتی سبز شد سریع ضربه بزن</p>
-            <div id="box" class="ready" onclick="doReaction()">برای شروع ضربه بزن</div>
+            <div id="box" class="ready" 
+                 onclick="doReaction()" 
+                 ontouchstart="doReaction(); event.preventDefault();">
+                برای شروع ضربه بزن
+            </div>
             <div id="result"></div>
         </div>
 
@@ -718,7 +724,4 @@ input[type=range]::-webkit-slider-thumb {
                 <button onclick="setDays(30)">۳۰ روز</button>
             </div>
             <div class="price-result">
-                <div class="label">مبلغ قابل پرداخت</div>
-                <div class="amount" id="priceAmount">۲۸,۰۰۰</div>
-                <div class="unit">تومان</div>
-            </
+           
