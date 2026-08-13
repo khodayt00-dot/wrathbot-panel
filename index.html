@@ -12,7 +12,6 @@ body{background:#050505;color:#eee;min-height:100vh;overflow-x:hidden}
 
 .wrap{max-width:430px;margin:0 auto;padding:16px 14px 130px;position:relative}
 
-/* صفحات با انیمیشن اسلاید */
 .page{
   display:none;
   opacity:0;
@@ -25,7 +24,6 @@ body{background:#050505;color:#eee;min-height:100vh;overflow-x:hidden}
   transform:translateX(0);
 }
 
-/* ناوبری جدید */
 .nav{
   position:fixed;bottom:0;left:0;right:0;
   background:rgba(8,8,8,.97);
@@ -261,70 +259,120 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 </div>
 
 <script>
-document.getElementById('nav').onclick=function(e){
-  var b=e.target.closest('button');
-  if(!b)return;
-  var n=b.getAttribute('data-p');
-  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('show')});
-  document.querySelectorAll('.nav button').forEach(function(x){x.classList.remove('on')});
-  document.getElementById('p'+n).classList.add('show');
-  b.classList.add('on');
-  window.scrollTo(0,0);
-  if(n=='4')setTimeout(initMem,30);
-};
-
-var slider=document.getElementById('daysSlider');
-function upd(){
-  var d=+slider.value||7;
-  document.getElementById('daysNum').textContent=d;
-  document.getElementById('priceAmount').textContent=(d*4000).toString().replace(/\B(?=(\d{3})+(?!\d))/g,'،');
-  document.querySelectorAll('.quick button').forEach(function(b){b.classList.toggle('on',+b.dataset.d===d)});
-}
-slider.oninput=upd;
-document.querySelectorAll('.quick button').forEach(function(b){b.onclick=function(){slider.value=this.dataset.d;upd()}});
-
-var st='ready',stime=0,tmr;
-var box=document.getElementById('box'),res=document.getElementById('result');
-box.onclick=function(){
-  if(st=='ready'){
-    st='wait';box.className='';box.style.background='#111';box.style.borderColor='#555';box.textContent='صبر کن...';res.textContent='';
-    tmr=setTimeout(function(){st='go';box.className='go';box.textContent='الان بزن!';stime=performance.now()},1400+Math.random()*2500);
-  }else if(st=='wait'){
-    clearTimeout(tmr);st='ready';box.className='fail';box.textContent='خیلی زود زدی!';res.textContent='دوباره امتحان کن';
-    setTimeout(function(){box.className='ready';box.textContent='برای شروع ضربه بزن';res.textContent=''},1400);
-  }else if(st=='go'){
-    var t=Math.round(performance.now()-stime);st='ready';box.className='ready';box.textContent='برای شروع ضربه بزن';res.textContent=t+' میلی‌ثانیه';
-  }
-};
-
-var cnt=0,run=false,left=10,iv;
-document.getElementById('cbtn').onclick=function(){
-  var c=document.getElementById('count'),b=this,t=document.getElementById('timer');
-  if(!run){
-    run=true;cnt=0;left=10;c.textContent='0';t.textContent='۱۰ ثانیه وقت داری';b.textContent='کلیک کن!';
-    iv=setInterval(function(){left--;t.textContent=left+' ثانیه باقی‌مانده';if(left<=0){clearInterval(iv);run=false;b.textContent='شروع دوباره';t.textContent='تموم شد! امتیاز: '+cnt}},1000);
-  }else{cnt++;c.textContent=cnt}
-};
-
-var em=['🔥','⚡','👑','💀','🎮','💎','🚀','🌙'],cds=[],fl=[],mt=0,lk=false;
-function initMem(){
-  var m=document.getElementById('memory'),r=document.getElementById('mres');
-  m.innerHTML='';r.textContent='';mt=0;fl=[];lk=false;
-  cds=em.concat(em).sort(function(){return Math.random()-.5});
-  cds.forEach(function(e){
-    var d=document.createElement('div');d.className='mcard';d.dataset.e=e;
-    d.onclick=function(){
-      if(lk||this.classList.contains('on')||this.classList.contains('ok'))return;
-      this.classList.add('on');this.textContent=this.dataset.e;fl.push(this);
-      if(fl.length==2){
-        lk=true;var a=fl[0],b=fl[1];
-        if(a.dataset.e==b.dataset.e){a.classList.add('ok');b.classList.add('ok');mt+=2;fl=[];lk=false;if(mt==cds.length)r.textContent='آفرین! همه رو پیدا کردی 🎉'}
-        else setTimeout(function(){a.classList.remove('on');b.classList.remove('on');a.textContent='';b.textContent='';fl=[];lk=false},700);
-      }
-    };
-    m.appendChild(d);
+(function(){
+  // ناوبری صفحات
+  document.getElementById('nav').addEventListener('click', function(e){
+    var b = e.target.closest('button');
+    if(!b) return;
+    var n = b.getAttribute('data-p');
+    if(!n) return;
+    document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('show'); });
+    document.querySelectorAll('.nav button').forEach(function(x){ x.classList.remove('on'); });
+    var page = document.getElementById('p' + n);
+    if(page) page.classList.add('show');
+    b.classList.add('on');
+    window.scrollTo(0, 0);
+    if(n === '4') setTimeout(initMem, 50);
   });
-}
 
-var ans={سخنگو:'برای فعال کردن سخنگو از دستور «سخنگو روشن» استفاده کن.',تگ:'تگ ممبر یکی از قابلیت‌های پرو است.',قفل:'قفل‌ها شامل قفل کلمه، قفل زمان و قفل شبانه هستند.',بن:'با دستور «بن» یا «سکوت» می‌تونی کاربر رو بن یا میوت کنی.',خوشامد:'خوشامدگویی خودکار با دستور «خوشامد روشن» فعال م
-<!-- force update 21:52 -->
+  // اسلایدر قیمت
+  var slider = document.getElementById('daysSlider');
+  function upd(){
+    var d = +slider.value || 7;
+    document.getElementById('daysNum').textContent = d;
+    var price = (d * 4000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '،');
+    document.getElementById('priceAmount').textContent = price;
+    document.querySelectorAll('.quick button').forEach(function(b){
+      b.classList.toggle('on', +b.dataset.d === d);
+    });
+  }
+  slider.addEventListener('input', upd);
+  document.querySelectorAll('.quick button').forEach(function(b){
+    b.addEventListener('click', function(){
+      slider.value = this.dataset.d;
+      upd();
+    });
+  });
+
+  // بازی سرعت
+  var st = 'ready', stime = 0, tmr;
+  var box = document.getElementById('box');
+  var res = document.getElementById('result');
+  box.addEventListener('click', function(){
+    if(st === 'ready'){
+      st = 'wait';
+      box.className = '';
+      box.style.background = '#111';
+      box.style.borderColor = '#555';
+      box.textContent = 'صبر کن...';
+      res.textContent = '';
+      tmr = setTimeout(function(){
+        st = 'go';
+        box.className = 'go';
+        box.textContent = 'الان بزن!';
+        stime = performance.now();
+      }, 1400 + Math.random() * 2500);
+    } else if(st === 'wait'){
+      clearTimeout(tmr);
+      st = 'ready';
+      box.className = 'fail';
+      box.textContent = 'خیلی زود زدی!';
+      res.textContent = 'دوباره امتحان کن';
+      setTimeout(function(){
+        box.className = 'ready';
+        box.textContent = 'برای شروع ضربه بزن';
+        res.textContent = '';
+      }, 1400);
+    } else if(st === 'go'){
+      var t = Math.round(performance.now() - stime);
+      st = 'ready';
+      box.className = 'ready';
+      box.textContent = 'برای شروع ضربه بزن';
+      res.textContent = t + ' میلی‌ثانیه';
+    }
+  });
+
+  // کلیکر
+  var cnt = 0, run = false, left = 10, iv;
+  document.getElementById('cbtn').addEventListener('click', function(){
+    var c = document.getElementById('count');
+    var b = this;
+    var t = document.getElementById('timer');
+    if(!run){
+      run = true;
+      cnt = 0;
+      left = 10;
+      c.textContent = '0';
+      t.textContent = '۱۰ ثانیه وقت داری';
+      b.textContent = 'کلیک کن!';
+      iv = setInterval(function(){
+        left--;
+        t.textContent = left + ' ثانیه باقی‌مانده';
+        if(left <= 0){
+          clearInterval(iv);
+          run = false;
+          b.textContent = 'شروع دوباره';
+          t.textContent = 'تموم شد! امتیاز: ' + cnt;
+        }
+      }, 1000);
+    } else {
+      cnt++;
+      c.textContent = cnt;
+    }
+  });
+
+  // بازی حافظه
+  var em = ['🔥','⚡','👑','💀','🎮','💎','🚀','🌙'];
+  var cds = [], fl = [], mt = 0, lk = false;
+  function initMem(){
+    var m = document.getElementById('memory');
+    var r = document.getElementById('mres');
+    if(!m) return;
+    m.innerHTML = '';
+    r.textContent = '';
+    mt = 0;
+    fl = [];
+    lk = false;
+    cds = em.concat(em).sort(function(){ return Math.random() - 0.5; });
+    cds.forEach(function(e){
+      var d = document
