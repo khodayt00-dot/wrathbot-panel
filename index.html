@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -17,7 +16,7 @@
 }
 
 body {
-    background: #0a0a0a;
+    background: #050505;
     color: #f0f0f0;
     min-height: 100vh;
     overflow-x: hidden;
@@ -27,17 +26,17 @@ body {
     position: fixed;
     inset: 0;
     background: 
-        radial-gradient(ellipse at 20% 20%, rgba(180, 0, 0, 0.25) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 80%, rgba(120, 0, 0, 0.2) 0%, transparent 50%),
-        radial-gradient(circle at 50% 50%, rgba(30, 0, 0, 0.4) 0%, transparent 70%),
-        #0a0a0a;
+        radial-gradient(ellipse at 15% 15%, rgba(90, 0, 0, 0.18) 0%, transparent 45%),
+        radial-gradient(ellipse at 85% 85%, rgba(60, 0, 0, 0.15) 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(20, 0, 0, 0.25) 0%, transparent 65%),
+        #050505;
     z-index: -1;
 }
 
 .container {
     max-width: 430px;
     margin: 0 auto;
-    padding: 16px 14px 95px;
+    padding: 16px 14px 100px;
 }
 
 .nav {
@@ -45,42 +44,38 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(10, 10, 10, 0.95);
-    border-top: 1px solid rgba(180, 0, 0, 0.3);
+    background: rgba(8, 8, 8, 0.97);
+    border-top: 1px solid rgba(140, 0, 0, 0.35);
     display: flex;
     justify-content: space-around;
-    padding: 10px 5px 14px;
+    padding: 10px 4px 14px;
     z-index: 1000;
 }
 
 .nav button {
     background: none;
     border: none;
-    color: #666;
+    color: #555;
     font-size: 11px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 3px;
-    padding: 6px 8px;
+    padding: 6px 7px;
     border-radius: 10px;
 }
 
 .nav button.active {
     color: #ff3333;
-    background: rgba(180, 0, 0, 0.15);
+    background: rgba(140, 0, 0, 0.2);
 }
 
 .nav button span {
     font-size: 18px;
 }
 
-.page {
-    display: none;
-}
-.page.show {
-    display: block;
-}
+.page { display: none; }
+.page.show { display: block; }
 
 .header {
     text-align: center;
@@ -89,17 +84,17 @@ body {
 }
 
 .logo {
-    width: 80px;
-    height: 80px;
+    width: 78px;
+    height: 78px;
     margin: 0 auto 10px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #8b0000, #ff2222);
+    background: linear-gradient(135deg, #6b0000, #e01010);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 34px;
-    box-shadow: 0 0 30px rgba(180, 0, 0, 0.5);
-    border: 2px solid rgba(255,255,255,0.1);
+    font-size: 32px;
+    box-shadow: 0 0 28px rgba(140, 0, 0, 0.45);
+    border: 2px solid rgba(255,255,255,0.08);
 }
 
 .title {
@@ -109,14 +104,14 @@ body {
 }
 
 .subtitle {
-    color: #999;
+    color: #777;
     font-size: 12px;
     margin-top: 3px;
 }
 
 .card {
-    background: rgba(20, 20, 20, 0.8);
-    border: 1px solid rgba(180, 0, 0, 0.25);
+    background: rgba(14, 14, 14, 0.9);
+    border: 1px solid rgba(140, 0, 0, 0.28);
     border-radius: 14px;
     padding: 14px;
     margin-bottom: 12px;
@@ -125,12 +120,10 @@ body {
 .intro {
     font-size: 13.5px;
     line-height: 1.7;
-    color: #ddd;
+    color: #ccc;
 }
 
-.intro b {
-    color: #ff4444;
-}
+.intro b { color: #ff4444; }
 
 .grid {
     display: grid;
@@ -140,8 +133,8 @@ body {
 }
 
 .feat {
-    background: rgba(180, 0, 0, 0.12);
-    border: 1px solid rgba(180, 0, 0, 0.3);
+    background: rgba(120, 0, 0, 0.15);
+    border: 1px solid rgba(140, 0, 0, 0.3);
     border-radius: 10px;
     padding: 12px 6px;
     text-align: center;
@@ -158,17 +151,14 @@ body {
     display: flex;
     gap: 10px;
     padding: 10px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
 }
-
-.row:last-child {
-    border-bottom: none;
-}
+.row:last-child { border-bottom: none; }
 
 .icon {
     width: 36px;
     height: 36px;
-    background: rgba(180, 0, 0, 0.2);
+    background: rgba(120, 0, 0, 0.25);
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -177,18 +167,11 @@ body {
     flex-shrink: 0;
 }
 
-.row h4 {
-    font-size: 13px;
-    margin-bottom: 2px;
-}
-
-.row p {
-    font-size: 11px;
-    color: #888;
-}
+.row h4 { font-size: 13px; margin-bottom: 2px; }
+.row p { font-size: 11px; color: #777; }
 
 .pro {
-    background: #ff2222;
+    background: #e01010;
     color: #fff;
     font-size: 9px;
     padding: 1px 5px;
@@ -200,23 +183,12 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 9px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
     font-size: 13px;
 }
-
-.team:last-child {
-    border-bottom: none;
-}
-
-.team span {
-    color: #888;
-}
-
-.team a {
-    color: #ff4444;
-    text-decoration: none;
-    font-weight: 600;
-}
+.team:last-child { border-bottom: none; }
+.team span { color: #777; }
+.team a { color: #ff4444; text-decoration: none; font-weight: 600; }
 
 .btn {
     display: block;
@@ -230,19 +202,19 @@ body {
 }
 
 .btn1 {
-    background: linear-gradient(90deg, #8b0000, #ff2222);
+    background: linear-gradient(90deg, #6b0000, #e01010);
     color: #fff;
 }
 
 .btn2 {
-    background: rgba(255,255,255,0.05);
-    color: #ddd;
-    border: 1px solid rgba(180, 0, 0, 0.3);
+    background: rgba(255,255,255,0.04);
+    color: #ccc;
+    border: 1px solid rgba(140, 0, 0, 0.3);
 }
 
 .game {
-    background: rgba(20, 20, 20, 0.8);
-    border: 1px solid rgba(180, 0, 0, 0.25);
+    background: rgba(14, 14, 14, 0.9);
+    border: 1px solid rgba(140, 0, 0, 0.28);
     border-radius: 14px;
     padding: 14px;
     margin-bottom: 12px;
@@ -250,45 +222,44 @@ body {
 
 .game h3 {
     font-size: 14px;
-    color: #ff6666;
+    color: #ff5555;
     margin-bottom: 4px;
 }
 
 .game p {
     font-size: 12px;
-    color: #888;
+    color: #777;
     margin-bottom: 10px;
 }
 
 #box {
     height: 80px;
     border-radius: 10px;
-    background: #111;
+    background: #0d0d0d;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 15px;
     font-weight: 600;
-    border: 2px solid #333;
+    border: 2px solid #2a2a2a;
     cursor: pointer;
 }
-
-#box.ready { border-color: #ff2222; }
-#box.go { background: #00aa44; color: #fff; border-color: #00aa44; }
-#box.fail { background: #cc0000; color: #fff; }
+#box.ready { border-color: #e01010; }
+#box.go { background: #0a8f3a; color: #fff; border-color: #0a8f3a; }
+#box.fail { background: #a00000; color: #fff; }
 
 #result {
     margin-top: 8px;
     text-align: center;
     font-size: 13px;
-    color: #ff6666;
+    color: #ff5555;
     min-height: 18px;
 }
 
 #count {
     font-size: 36px;
     font-weight: 800;
-    color: #ff4444;
+    color: #ff3333;
     text-align: center;
     margin: 6px 0;
 }
@@ -296,7 +267,7 @@ body {
 #cbtn {
     display: block;
     margin: 0 auto;
-    background: linear-gradient(90deg, #8b0000, #ff2222);
+    background: linear-gradient(90deg, #6b0000, #e01010);
     border: none;
     color: #fff;
     padding: 11px 36px;
@@ -308,7 +279,7 @@ body {
 #timer {
     text-align: center;
     font-size: 12px;
-    color: #888;
+    color: #777;
     margin-top: 6px;
 }
 
@@ -320,47 +291,43 @@ body {
 
 .mcard {
     aspect-ratio: 1;
-    background: rgba(180, 0, 0, 0.15);
+    background: rgba(120, 0, 0, 0.18);
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 20px;
-    border: 1px solid rgba(180, 0, 0, 0.3);
+    border: 1px solid rgba(140, 0, 0, 0.3);
     cursor: pointer;
 }
-
 .mcard.on, .mcard.ok {
-    background: rgba(255, 50, 50, 0.25);
-    border-color: #ff4444;
+    background: rgba(220, 40, 40, 0.25);
+    border-color: #ff3333;
 }
-
-.mcard.ok {
-    opacity: 0.5;
-}
+.mcard.ok { opacity: 0.5; }
 
 .footer {
     text-align: center;
     margin-top: 16px;
     font-size: 11px;
-    color: #555;
+    color: #444;
 }
 
-/* ===== بخش قیمت ===== */
+/* قیمت */
 .price-box {
-    background: linear-gradient(145deg, rgba(40,10,10,0.9), rgba(20,5,5,0.95));
-    border: 1px solid rgba(255,50,50,0.35);
+    background: linear-gradient(145deg, rgba(30,8,8,0.95), rgba(12,4,4,0.98));
+    border: 1px solid rgba(200,40,40,0.35);
     border-radius: 16px;
     padding: 18px 16px;
     margin-bottom: 14px;
-    box-shadow: 0 0 25px rgba(180,0,0,0.15);
+    box-shadow: 0 0 25px rgba(120,0,0,0.15);
 }
 
 .price-title {
     text-align: center;
     font-size: 15px;
     font-weight: 700;
-    color: #ff5555;
+    color: #ff4444;
     margin-bottom: 14px;
 }
 
@@ -375,32 +342,28 @@ body {
 .days-label {
     text-align: center;
     font-size: 13px;
-    color: #aaa;
+    color: #888;
     margin-bottom: 16px;
 }
 
-.slider-wrap {
-    padding: 0 6px;
-    margin-bottom: 16px;
-}
+.slider-wrap { padding: 0 6px; margin-bottom: 16px; }
 
 input[type=range] {
     width: 100%;
     height: 8px;
     -webkit-appearance: none;
-    background: #333;
+    background: #222;
     border-radius: 10px;
     outline: none;
 }
-
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 22px;
     height: 22px;
-    background: linear-gradient(135deg, #ff2222, #cc0000);
+    background: linear-gradient(135deg, #e01010, #a00000);
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 0 10px rgba(255,50,50,0.5);
+    box-shadow: 0 0 10px rgba(220,40,40,0.5);
 }
 
 .quick-days {
@@ -410,51 +373,34 @@ input[type=range]::-webkit-slider-thumb {
     flex-wrap: wrap;
     margin-bottom: 18px;
 }
-
 .quick-days button {
-    background: rgba(180,0,0,0.2);
-    border: 1px solid rgba(255,50,50,0.3);
-    color: #ddd;
+    background: rgba(120,0,0,0.25);
+    border: 1px solid rgba(200,40,40,0.3);
+    color: #ccc;
     padding: 7px 12px;
     border-radius: 20px;
     font-size: 12px;
     font-weight: 600;
 }
-
 .quick-days button.active {
-    background: linear-gradient(90deg, #8b0000, #ff2222);
+    background: linear-gradient(90deg, #6b0000, #e01010);
     border-color: transparent;
     color: #fff;
 }
 
 .price-result {
-    background: rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.45);
     border-radius: 12px;
     padding: 14px;
     text-align: center;
-    margin-bottom: 6px;
 }
-
-.price-result .label {
-    font-size: 12px;
-    color: #999;
-    margin-bottom: 4px;
-}
-
-.price-result .amount {
-    font-size: 28px;
-    font-weight: 800;
-    color: #ff4444;
-}
-
-.price-result .unit {
-    font-size: 13px;
-    color: #aaa;
-}
+.price-result .label { font-size: 12px; color: #888; margin-bottom: 4px; }
+.price-result .amount { font-size: 28px; font-weight: 800; color: #ff3333; }
+.price-result .unit { font-size: 13px; color: #888; }
 
 .unlimited-card {
-    background: linear-gradient(135deg, rgba(180,0,0,0.25), rgba(80,0,0,0.3));
-    border: 1px solid rgba(255,80,80,0.4);
+    background: linear-gradient(135deg, rgba(140,0,0,0.28), rgba(50,0,0,0.35));
+    border: 1px solid rgba(220,60,60,0.4);
     border-radius: 14px;
     padding: 16px;
     text-align: center;
@@ -462,61 +408,87 @@ input[type=range]::-webkit-slider-thumb {
     position: relative;
     overflow: hidden;
 }
-
 .unlimited-card::before {
     content: "👑";
     position: absolute;
     top: -10px;
     left: -10px;
     font-size: 60px;
-    opacity: 0.1;
+    opacity: 0.08;
 }
-
-.unlimited-title {
-    font-size: 15px;
-    font-weight: 700;
-    color: #ffcc00;
-    margin-bottom: 6px;
-}
-
-.unlimited-price {
-    font-size: 26px;
-    font-weight: 800;
-    color: #fff;
-    margin-bottom: 4px;
-}
-
-.unlimited-desc {
-    font-size: 12px;
-    color: #bbb;
-}
+.unlimited-title { font-size: 15px; font-weight: 700; color: #ffcc00; margin-bottom: 6px; }
+.unlimited-price { font-size: 26px; font-weight: 800; color: #fff; margin-bottom: 4px; }
+.unlimited-desc { font-size: 12px; color: #aaa; }
 
 .buy-box {
-    background: rgba(20,20,20,0.9);
-    border: 1px solid rgba(180,0,0,0.3);
+    background: rgba(14,14,14,0.95);
+    border: 1px solid rgba(140,0,0,0.3);
     border-radius: 14px;
     padding: 16px;
     text-align: center;
 }
-
 .buy-box p {
     font-size: 13px;
-    color: #ccc;
+    color: #bbb;
     margin-bottom: 12px;
     line-height: 1.6;
 }
-
 .buy-box a {
     display: inline-block;
-    background: linear-gradient(90deg, #8b0000, #ff2222);
+    background: linear-gradient(90deg, #6b0000, #e01010);
     color: #fff;
     padding: 12px 28px;
     border-radius: 30px;
     font-weight: 700;
     font-size: 14px;
     text-decoration: none;
-    box-shadow: 0 4px 15px rgba(180,0,0,0.4);
+    box-shadow: 0 4px 15px rgba(140,0,0,0.4);
 }
+
+/* بازی‌های جدید */
+.game-btns {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 10px 0;
+}
+.game-btns button {
+    background: rgba(120,0,0,0.25);
+    border: 1px solid rgba(200,40,40,0.35);
+    color: #eee;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    min-width: 70px;
+}
+.game-btns button:active {
+    background: linear-gradient(90deg, #6b0000, #e01010);
+}
+
+.game-result {
+    text-align: center;
+    font-size: 14px;
+    color: #ff5555;
+    min-height: 22px;
+    margin-top: 8px;
+    font-weight: 600;
+}
+
+.guess-input {
+    width: 100%;
+    background: #111;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 10px;
+    outline: none;
+}
+.guess-input:focus { border-color: #e01010; }
 </style>
 </head>
 <body>
@@ -628,14 +600,15 @@ input[type=range]::-webkit-slider-thumb {
         <div class="footer">صفحه ۳ از ۵</div>
     </div>
 
-    <!-- صفحه ۴ - بازی -->
+    <!-- صفحه ۴ - بازی‌ها -->
     <div class="page" id="p4">
         <div class="header">
             <div class="logo">🎮</div>
             <div class="title">مینی‌گیم‌ها</div>
-            <div class="subtitle">سه بازی خفن</div>
+            <div class="subtitle">۶ بازی خفن</div>
         </div>
 
+        <!-- ۱. چالش سرعت -->
         <div class="game">
             <h3>⚡ چالش سرعت</h3>
             <p>وقتی سبز شد سریع ضربه بزن</p>
@@ -643,6 +616,7 @@ input[type=range]::-webkit-slider-thumb {
             <div id="result"></div>
         </div>
 
+        <!-- ۲. کلیکر -->
         <div class="game">
             <h3>🔥 کلیکر ۱۰ ثانیه</h3>
             <p>هرچقدر می‌تونی کلیک کن</p>
@@ -651,17 +625,52 @@ input[type=range]::-webkit-slider-thumb {
             <div id="timer">۱۰ ثانیه وقت داری</div>
         </div>
 
+        <!-- ۳. حافظه -->
         <div class="game">
             <h3>🧠 حافظه</h3>
             <p>کارت‌های مشابه رو پیدا کن</p>
             <div class="memory" id="memory"></div>
-            <div id="mres" style="text-align:center;margin-top:8px;color:#ff6666;font-size:13px;"></div>
+            <div id="mres" class="game-result"></div>
+        </div>
+
+        <!-- ۴. حدس عدد -->
+        <div class="game">
+            <h3>🎯 حدس عدد</h3>
+            <p>عددی بین ۱ تا ۱۰۰ حدس بزن</p>
+            <input type="number" class="guess-input" id="guessInput" placeholder="عدد رو وارد کن" min="1" max="100">
+            <div class="game-btns">
+                <button onclick="checkGuess()">حدس بزن</button>
+                <button onclick="newGuess()">شروع دوباره</button>
+            </div>
+            <div id="guessResult" class="game-result"></div>
+        </div>
+
+        <!-- ۵. سنگ کاغذ قیچی -->
+        <div class="game">
+            <h3>✊ سنگ کاغذ قیچی</h3>
+            <p>انتخاب کن و با ربات مسابقه بده</p>
+            <div class="game-btns">
+                <button onclick="playRPS('سنگ')">✊ سنگ</button>
+                <button onclick="playRPS('کاغذ')">✋ کاغذ</button>
+                <button onclick="playRPS('قیچی')">✌️ قیچی</button>
+            </div>
+            <div id="rpsResult" class="game-result"></div>
+        </div>
+
+        <!-- ۶. تاس شانس -->
+        <div class="game">
+            <h3>🎲 تاس شانس</h3>
+            <p>تاس بنداز و شانس بیار</p>
+            <div class="game-btns">
+                <button onclick="rollDice()">🎲 بنداز</button>
+            </div>
+            <div id="diceResult" class="game-result"></div>
         </div>
 
         <div class="footer">صفحه ۴ از ۵</div>
     </div>
 
-    <!-- صفحه ۵ - قیمت اشتراک -->
+    <!-- صفحه ۵ - قیمت -->
     <div class="page" id="p5">
         <div class="header">
             <div class="logo">💎</div>
@@ -671,7 +680,6 @@ input[type=range]::-webkit-slider-thumb {
 
         <div class="price-box">
             <div class="price-title">📅 انتخاب مدت اشتراک</div>
-            
             <div class="days-display" id="daysNum">7</div>
             <div class="days-label">روز</div>
 
@@ -691,230 +699,4 @@ input[type=range]::-webkit-slider-thumb {
                 <div class="label">مبلغ قابل پرداخت</div>
                 <div class="amount" id="priceAmount">۲۸,۰۰۰</div>
                 <div class="unit">تومان</div>
-            </div>
-        </div>
-
-        <div class="unlimited-card">
-            <div class="unlimited-title">👑 اشتراک نامحدود</div>
-            <div class="unlimited-price">۱۵۰,۰۰۰ تومان</div>
-            <div class="unlimited-desc">یک‌بار پرداخت • دسترسی دائمی به همه قابلیت‌های پرو</div>
-        </div>
-
-        <div class="buy-box">
-            <p>
-                برای خرید اشتراک پرو<br>
-                به آیدی زیر پیام بدید
-            </p>
-            <a href="https://splus.ir/WRATH_HaMi">@WRATH_HaMi</a>
-        </div>
-
-        <div class="footer">صفحه ۵ از ۵</div>
-    </div>
-
-</div>
-
-<!-- دکمه‌های پایین -->
-<div class="nav">
-    <button id="b1" class="active" onclick="show(1)"><span>🏠</span>خانه</button>
-    <button id="b2" onclick="show(2)"><span>🛠</span>اصلی</button>
-    <button id="b3" onclick="show(3)"><span>👑</span>پرو</button>
-    <button id="b4" onclick="show(4)"><span>🎮</span>بازی</button>
-    <button id="b5" onclick="show(5)"><span>💎</span>قیمت</button>
-</div>
-
-<script>
-function show(n) {
-    document.getElementById('p1').classList.remove('show');
-    document.getElementById('p2').classList.remove('show');
-    document.getElementById('p3').classList.remove('show');
-    document.getElementById('p4').classList.remove('show');
-    document.getElementById('p5').classList.remove('show');
-
-    document.getElementById('b1').classList.remove('active');
-    document.getElementById('b2').classList.remove('active');
-    document.getElementById('b3').classList.remove('active');
-    document.getElementById('b4').classList.remove('active');
-    document.getElementById('b5').classList.remove('active');
-
-    document.getElementById('p' + n).classList.add('show');
-    document.getElementById('b' + n).classList.add('active');
-
-    window.scrollTo(0, 0);
-
-    if (n === 4) {
-        setTimeout(startMem, 50);
-    }
-}
-
-// ===== قیمت =====
-const PRICE_PER_DAY = 4000;
-
-function updatePrice() {
-    const days = parseInt(document.getElementById('daysSlider').value);
-    document.getElementById('daysNum').innerText = days;
-    
-    const total = days * PRICE_PER_DAY;
-    document.getElementById('priceAmount').innerText = total.toLocaleString('fa-IR');
-
-    // آپدیت دکمه‌های سریع
-    document.querySelectorAll('.quick-days button').forEach(btn => {
-        btn.classList.remove('active');
-    });
-}
-
-function setDays(d) {
-    document.getElementById('daysSlider').value = d;
-    updatePrice();
-    
-    // فعال کردن دکمه مربوطه
-    document.querySelectorAll('.quick-days button').forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.innerText.includes(d + ' روز') || (d === 1 && btn.innerText.includes('۱ روز'))) {
-            btn.classList.add('active');
-        }
-    });
-}
-
-// ===== بازی سرعت =====
-var st = 'wait';
-var stime = 0;
-var tmr = null;
-
-function doReaction() {
-    var box = document.getElementById('box');
-    var res = document.getElementById('result');
-
-    if (st === 'wait' || st === 'done') {
-        st = 'ready';
-        box.className = 'ready';
-        box.innerHTML = 'صبر کن...';
-        res.innerHTML = '';
-        tmr = setTimeout(function () {
-            st = 'go';
-            box.className = 'go';
-            box.innerHTML = 'الان بزن! ⚡';
-            stime = Date.now();
-        }, 1200 + Math.random() * 2500);
-    }
-    else if (st === 'ready') {
-        clearTimeout(tmr);
-        st = 'done';
-        box.className = 'fail';
-        box.innerHTML = 'خیلی زود زدی!';
-        res.innerHTML = 'دوباره امتحان کن';
-        setTimeout(function () {
-            st = 'wait';
-            box.className = 'ready';
-            box.innerHTML = 'برای شروع ضربه بزن';
-        }, 1200);
-    }
-    else if (st === 'go') {
-        var ms = Date.now() - stime;
-        st = 'done';
-        box.className = 'ready';
-        box.innerHTML = 'آفرین!';
-        if (ms < 180) res.innerHTML = '🔥 مرگبار! ' + ms + 'ms';
-        else if (ms < 250) res.innerHTML = '⚡ عالی! ' + ms + 'ms';
-        else if (ms < 350) res.innerHTML = '👍 خوب! ' + ms + 'ms';
-        else res.innerHTML = '😐 ' + ms + 'ms';
-
-        setTimeout(function () {
-            st = 'wait';
-            box.className = 'ready';
-            box.innerHTML = 'برای شروع ضربه بزن';
-        }, 1600);
-    }
-}
-
-// ===== کلیکر =====
-var clicks = 0;
-var run = false;
-var ctmr = null;
-
-function doClick() {
-    if (!run) {
-        run = true;
-        clicks = 0;
-        document.getElementById('count').innerHTML = '0';
-        document.getElementById('cbtn').innerHTML = 'کلیک کن!';
-        var t = 10;
-        document.getElementById('timer').innerHTML = t + ' ثانیه باقی مونده';
-
-        ctmr = setInterval(function () {
-            t--;
-            document.getElementById('timer').innerHTML = t + ' ثانیه باقی مونده';
-            if (t <= 0) {
-                clearInterval(ctmr);
-                run = false;
-                document.getElementById('cbtn').innerHTML = 'دوباره';
-                document.getElementById('timer').innerHTML = 'نتیجه: ' + clicks + ' کلیک';
-            }
-        }, 1000);
-    } else {
-        clicks++;
-        document.getElementById('count').innerHTML = clicks;
-    }
-}
-
-// ===== حافظه =====
-var em = ['⚡', '🔥', '🎮', '🤖', '🎨', '💎', '🚀', '🌟'];
-var flipped = [];
-var matched = 0;
-var lock = false;
-
-function startMem() {
-    var grid = document.getElementById('memory');
-    grid.innerHTML = '';
-    matched = 0;
-    flipped = [];
-    lock = false;
-    document.getElementById('mres').innerHTML = '';
-
-    var cards = em.concat(em);
-    cards.sort(function () { return Math.random() - 0.5; });
-
-    for (var i = 0; i < cards.length; i++) {
-        var d = document.createElement('div');
-        d.className = 'mcard';
-        d.setAttribute('data-e', cards[i]);
-        d.onclick = function () { flip(this); };
-        grid.appendChild(d);
-    }
-}
-
-function flip(c) {
-    if (lock || c.classList.contains('on') || c.classList.contains('ok')) return;
-
-    c.classList.add('on');
-    c.innerHTML = c.getAttribute('data-e');
-    flipped.push(c);
-
-    if (flipped.length === 2) {
-        lock = true;
-        if (flipped[0].getAttribute('data-e') === flipped[1].getAttribute('data-e')) {
-            flipped[0].classList.add('ok');
-            flipped[1].classList.add('ok');
-            matched += 2;
-            flipped = [];
-            lock = false;
-            if (matched === 16) {
-                document.getElementById('mres').innerHTML = '🎉 آفرین! همه رو پیدا کردی';
-            }
-        } else {
-            setTimeout(function () {
-                flipped[0].classList.remove('on');
-                flipped[1].classList.remove('on');
-                flipped[0].innerHTML = '';
-                flipped[1].innerHTML = '';
-                flipped = [];
-                lock = false;
-            }, 550);
-        }
-    }
-}
-
-startMem();
-updatePrice();
-</script>
-</body>
-</html>
+   
