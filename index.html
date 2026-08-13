@@ -7,277 +7,337 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap');
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Vazirmatn',Tahoma,sans-serif;-webkit-tap-highlight-color:transparent}
-body{background:#050505;color:#f0f0f0;min-height:100vh;overflow-x:hidden}
-.bg{position:fixed;inset:0;background:radial-gradient(ellipse at 15% 15%,rgba(255,20,20,.4) 0%,transparent 45%),radial-gradient(ellipse at 85% 85%,rgba(180,0,60,.3) 0%,transparent 50%),#050505;z-index:-1}
-.container{max-width:440px;margin:0 auto;padding:16px 14px 120px}
-.nav{position:fixed;bottom:0;left:0;right:0;background:rgba(6,6,6,.97);backdrop-filter:blur(20px);border-top:1px solid rgba(255,40,40,.4);display:flex;justify-content:space-around;padding:12px 4px 22px;z-index:9999}
-.nav button{background:none;border:none;color:#555;font-size:11px;display:flex;flex-direction:column;align-items:center;gap:5px;padding:10px 8px;border-radius:18px;min-width:54px;cursor:pointer}
-.nav button span{font-size:24px;display:block}
-.nav button.active{color:#ff3b3b}
-.nav button.active span{transform:scale(1.25);text-shadow:0 0 12px #ff2222,0 0 25px #ff0000}
+body{background:#050505;color:#eee;min-height:100vh;overflow-x:hidden}
+.bg{position:fixed;inset:0;background:radial-gradient(ellipse at 20% 20%,rgba(255,30,30,.35),transparent 50%),radial-gradient(ellipse at 80% 80%,rgba(120,0,40,.25),transparent 50%),#050505;z-index:-1}
+.wrap{max-width:430px;margin:0 auto;padding:18px 14px 130px}
+
+/* ناوبری جدید و مقاوم */
+.nav{
+  position:fixed;bottom:0;left:0;right:0;
+  background:rgba(8,8,8,.96);
+  backdrop-filter:blur(20px);
+  border-top:1px solid rgba(255,50,50,.35);
+  display:flex;justify-content:space-around;
+  padding:10px 6px 24px;z-index:999;
+}
+.nav-btn{
+  flex:1;max-width:70px;
+  background:transparent;border:none;
+  color:#666;font-size:11px;
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  padding:8px 4px;border-radius:16px;cursor:pointer;
+  transition:all .2s;
+}
+.nav-btn span{font-size:22px;transition:transform .2s}
+.nav-btn.active{color:#ff3b3b}
+.nav-btn.active span{
+  transform:scale(1.25);
+  text-shadow:0 0 10px #ff2222,0 0 20px #ff0000,0 0 30px rgba(255,0,0,.7);
+}
+.nav-btn:active{transform:scale(.9)}
+
 .page{display:none}
-.page.show{display:block}
-.header{text-align:center;margin-bottom:20px;padding-top:8px}
-.logo{width:90px;height:90px;margin:0 auto 12px;border-radius:50%;background:linear-gradient(145deg,#c00000,#ff1a1a);display:flex;align-items:center;justify-content:center;font-size:40px;box-shadow:0 0 30px rgba(255,30,30,.6);border:3px solid rgba(255,255,255,.2)}
+.page.active{display:block}
+
+.header{text-align:center;margin-bottom:20px}
+.logo{
+  width:88px;height:88px;margin:0 auto 12px;border-radius:50%;
+  background:linear-gradient(145deg,#b00000,#ff1a1a);
+  display:flex;align-items:center;justify-content:center;
+  font-size:38px;box-shadow:0 0 35px rgba(255,30,30,.55);
+  border:2px solid rgba(255,255,255,.15);
+}
 .title{font-size:28px;font-weight:800;color:#fff}
-.subtitle{color:#aaa;font-size:13px;margin-top:4px}
-.card{background:rgba(12,12,12,.92);border:1px solid rgba(255,40,40,.28);border-radius:16px;padding:16px;margin-bottom:14px}
+.sub{color:#999;font-size:13px;margin-top:4px}
+
+.card{
+  background:rgba(15,15,15,.9);
+  border:1px solid rgba(255,40,40,.25);
+  border-radius:18px;padding:16px;margin-bottom:14px;
+}
 .intro{font-size:14px;line-height:1.7;color:#ddd}
 .intro b{color:#ff4444}
+
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
-.feat{background:rgba(180,0,0,.2);border:1px solid rgba(255,50,50,.35);border-radius:14px;padding:14px 8px;text-align:center;font-size:13px}
-.feat span{display:block;font-size:26px;margin-bottom:6px}
-.row{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.06);align-items:center}
-.row:last-child{border-bottom:none}
-.icon{width:38px;height:38px;background:rgba(180,0,0,.28);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
-.row h4{font-size:13.5px;margin-bottom:2px}
-.row p{font-size:11.5px;color:#888}
-.pro{background:#ff2222;color:#fff;font-size:9px;padding:2px 6px;border-radius:8px;margin-right:4px}
+.feat{
+  background:rgba(180,0,0,.18);
+  border:1px solid rgba(255,50,50,.3);
+  border-radius:14px;padding:14px 6px;text-align:center;font-size:12.5px;
+}
+.feat i{display:block;font-size:26px;margin-bottom:6px}
+
 .team{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:13.5px}
 .team:last-child{border-bottom:none}
 .team span{color:#888}
 .team a{color:#ff4444;text-decoration:none;font-weight:600}
-.btn{display:block;text-align:center;padding:14px;border-radius:14px;font-weight:700;font-size:14.5px;text-decoration:none;margin-bottom:10px}
-.btn1{background:linear-gradient(90deg,#8b0000,#ff2222);color:#fff}
-.btn2{background:rgba(255,255,255,.06);color:#ddd;border:1px solid rgba(255,40,40,.35)}
-.game{background:rgba(12,12,12,.92);border:1px solid rgba(255,40,40,.28);border-radius:16px;padding:16px;margin-bottom:14px}
-.game h3{font-size:15px;color:#ff6666;margin-bottom:5px}
+
+.btn{
+  display:block;text-align:center;padding:14px;border-radius:14px;
+  font-weight:700;font-size:14.5px;text-decoration:none;margin-bottom:10px;
+}
+.btn-red{background:linear-gradient(90deg,#8b0000,#ff2222);color:#fff}
+.btn-dark{background:rgba(255,255,255,.06);color:#ddd;border:1px solid rgba(255,40,40,.3)}
+
+.row{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.06);align-items:center}
+.row:last-child{border-bottom:none}
+.icon{width:38px;height:38px;background:rgba(180,0,0,.25);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.row h4{font-size:13.5px;margin-bottom:2px}
+.row p{font-size:11.5px;color:#888}
+.pro{background:#ff2222;color:#fff;font-size:9px;padding:1px 6px;border-radius:8px;margin-right:4px}
+
+.game{background:rgba(15,15,15,.9);border:1px solid rgba(255,40,40,.25);border-radius:16px;padding:16px;margin-bottom:14px}
+.game h3{font-size:15px;color:#ff6666;margin-bottom:4px}
 .game p{font-size:12.5px;color:#888;margin-bottom:12px}
-#box{height:80px;border-radius:12px;background:#111;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;border:2px solid #333;cursor:pointer}
+#box{height:78px;border-radius:12px;background:#111;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;border:2px solid #333;cursor:pointer}
 #box.ready{border-color:#ff2222}
 #box.go{background:#00aa44;color:#fff;border-color:#00aa44}
 #box.fail{background:#cc0000;color:#fff}
-#result{margin-top:8px;text-align:center;font-size:14px;color:#ff6666;min-height:20px}
-#count{font-size:38px;font-weight:800;color:#ff4444;text-align:center;margin:8px 0}
-#cbtn{display:block;margin:0 auto;background:linear-gradient(90deg,#8b0000,#ff2222);border:none;color:#fff;padding:12px 36px;border-radius:30px;font-size:15px;font-weight:700;cursor:pointer}
+#result{margin-top:8px;text-align:center;font-size:14px;color:#ff6666;min-height:18px}
+#count{font-size:36px;font-weight:800;color:#ff4444;text-align:center;margin:8px 0}
+#cbtn{display:block;margin:0 auto;background:linear-gradient(90deg,#8b0000,#ff2222);border:none;color:#fff;padding:12px 36px;border-radius:30px;font-size:14px;font-weight:700;cursor:pointer}
 #timer{text-align:center;font-size:13px;color:#888;margin-top:8px}
-.memory{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.mcard{aspect-ratio:1;background:rgba(180,0,0,.18);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;border:1px solid rgba(255,40,40,.3);cursor:pointer}
+.memory{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.mcard{aspect-ratio:1;background:rgba(180,0,0,.18);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;border:1px solid rgba(255,40,40,.3);cursor:pointer}
 .mcard.on,.mcard.ok{background:rgba(255,50,50,.35);border-color:#ff4444}
 .mcard.ok{opacity:.4;pointer-events:none}
-.footer{text-align:center;margin-top:16px;font-size:12px;color:#555}
-.price-box{background:linear-gradient(145deg,rgba(40,5,5,.96),rgba(12,0,0,.98));border:1px solid rgba(255,50,50,.4);border-radius:18px;padding:18px 14px;margin-bottom:14px}
+
+.price-box{background:linear-gradient(145deg,rgba(40,5,5,.95),rgba(12,0,0,.98));border:1px solid rgba(255,50,50,.35);border-radius:18px;padding:18px 14px;margin-bottom:14px}
 .price-title{text-align:center;font-size:15px;font-weight:700;color:#ff5555;margin-bottom:14px}
-.days-display{text-align:center;font-size:42px;font-weight:800;color:#fff;margin:6px 0 2px}
+.days-display{text-align:center;font-size:42px;font-weight:800;color:#fff}
 .days-label{text-align:center;font-size:13px;color:#aaa;margin-bottom:14px}
-.slider-wrap{padding:0 6px;margin-bottom:14px}
-input[type=range]{width:100%;height:8px;-webkit-appearance:none;background:#222;border-radius:10px}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;background:#ff2222;border-radius:50%;cursor:pointer}
-.quick-days{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
-.quick-days button{background:rgba(180,0,0,.22);border:1px solid rgba(255,50,50,.35);color:#ddd;padding:7px 12px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer}
-.quick-days button.active{background:linear-gradient(90deg,#8b0000,#ff2222);border:none;color:#fff}
+input[type=range]{width:100%;height:8px;-webkit-appearance:none;background:#222;border-radius:10px;margin-bottom:14px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;background:#ff2222;border-radius:50%}
+.quick{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+.quick button{background:rgba(180,0,0,.2);border:1px solid rgba(255,50,50,.3);color:#ddd;padding:7px 12px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer}
+.quick button.on{background:linear-gradient(90deg,#8b0000,#ff2222);border:none;color:#fff}
 .price-result{background:rgba(0,0,0,.4);border-radius:12px;padding:14px;text-align:center}
-.price-result .label{font-size:12px;color:#999;margin-bottom:4px}
 .price-result .amount{font-size:28px;font-weight:800;color:#ff4444}
-.price-result .unit{font-size:13px;color:#aaa}
-.unlimited-card{background:linear-gradient(135deg,rgba(180,0,0,.3),rgba(50,0,0,.4));border:1px solid rgba(255,80,80,.4);border-radius:16px;padding:16px;text-align:center;margin-bottom:14px}
-.unlimited-title{font-size:15px;font-weight:700;color:#ffcc00;margin-bottom:6px}
-.unlimited-price{font-size:26px;font-weight:800;color:#fff;margin-bottom:4px}
-.unlimited-desc{font-size:12px;color:#bbb}
-.buy-box{background:rgba(12,12,12,.92);border:1px solid rgba(255,40,40,.3);border-radius:16px;padding:16px;text-align:center}
-.buy-box p{font-size:13px;color:#ccc;margin-bottom:12px;line-height:1.6}
-.buy-box a{display:inline-block;background:linear-gradient(90deg,#8b0000,#ff2222);color:#fff;padding:12px 28px;border-radius:30px;font-weight:700;font-size:14px;text-decoration:none}
-.chat-box{background:rgba(10,10,10,.95);border:1px solid rgba(255,40,40,.28);border-radius:18px;padding:14px;height:360px;display:flex;flex-direction:column}
-.chat-messages{flex:1;overflow-y:auto;padding:6px;display:flex;flex-direction:column;gap:10px}
+.unlimited{background:linear-gradient(135deg,rgba(180,0,0,.3),rgba(50,0,0,.4));border:1px solid rgba(255,80,80,.4);border-radius:16px;padding:16px;text-align:center;margin-bottom:14px}
+.unlimited .t{font-size:15px;font-weight:700;color:#ffcc00;margin-bottom:6px}
+.unlimited .p{font-size:26px;font-weight:800;color:#fff;margin-bottom:4px}
+.buy{background:rgba(15,15,15,.9);border:1px solid rgba(255,40,40,.3);border-radius:16px;padding:16px;text-align:center}
+.buy a{display:inline-block;background:linear-gradient(90deg,#8b0000,#ff2222);color:#fff;padding:12px 28px;border-radius:30px;font-weight:700;font-size:14px;text-decoration:none;margin-top:10px}
+
+.chat-box{background:rgba(12,12,12,.95);border:1px solid rgba(255,40,40,.25);border-radius:18px;padding:14px;height:360px;display:flex;flex-direction:column}
+.msgs{flex:1;overflow-y:auto;padding:6px;display:flex;flex-direction:column;gap:10px}
 .msg{max-width:85%;padding:10px 13px;border-radius:14px;font-size:13px;line-height:1.55}
-.msg.bot{background:rgba(180,0,0,.22);border:1px solid rgba(255,50,50,.25);align-self:flex-start}
-.msg.user{background:rgba(255,255,255,.09);align-self:flex-end}
-.chat-input-area{display:flex;gap:8px;margin-top:10px}
-.chat-input-area input{flex:1;background:rgba(255,255,255,.07);border:1px solid rgba(255,40,40,.35);border-radius:12px;padding:11px 12px;color:#fff;font-size:14px;outline:none}
-.chat-input-area button{background:linear-gradient(135deg,#ff2222,#cc0000);border:none;color:#fff;width:46px;border-radius:12px;font-size:18px;cursor:pointer}
+.msg.bot{background:rgba(180,0,0,.2);border:1px solid rgba(255,50,50,.2);align-self:flex-start}
+.msg.user{background:rgba(255,255,255,.08);align-self:flex-end}
+.input-area{display:flex;gap:8px;margin-top:10px}
+.input-area input{flex:1;background:rgba(255,255,255,.06);border:1px solid rgba(255,40,40,.3);border-radius:12px;padding:11px 12px;color:#fff;font-size:14px;outline:none}
+.input-area button{background:linear-gradient(135deg,#ff2222,#cc0000);border:none;color:#fff;width:46px;border-radius:12px;font-size:18px;cursor:pointer}
 .suggest{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-.suggest button{background:rgba(180,0,0,.2);border:1px solid rgba(255,50,50,.3);color:#ddd;padding:6px 11px;border-radius:18px;font-size:12px;cursor:pointer}
+.suggest button{background:rgba(180,0,0,.18);border:1px solid rgba(255,50,50,.25);color:#ddd;padding:6px 11px;border-radius:18px;font-size:12px;cursor:pointer}
+
+.footer{text-align:center;margin-top:16px;font-size:12px;color:#555}
 </style>
 </head>
 <body>
 <div class="bg"></div>
-<div class="container">
+<div class="wrap">
 
-<div class="page show" id="p1">
-<div class="header"><div class="logo">⚡</div><div class="title">WRATHBOT</div><div class="subtitle">v3.9.2-turbo • مدیریت گروه سروش پلاس</div></div>
-<div class="card intro"><b>WRATHBOT</b> یکی از کامل‌ترین و قوی‌ترین ربات‌های مدیریت گروه سروش پلاسه.<br>بیش از ۳۰ قابلیت عادی + ۲۲ سلاح مدیریتی پرو.</div>
-<div class="grid">
-<div class="feat"><span>🎨</span>عکس‌ساز پرو</div>
-<div class="feat"><span>🤖</span>هوش مصنوعی</div>
-<div class="feat"><span>🧹</span>پاکسازی هوشمند</div>
-<div class="feat"><span>📢</span>تگ ممبر</div>
-<div class="feat"><span>⚡</span>سرعت بالا</div>
-<div class="feat"><span>👑</span>۲۲ سلاح پرو</div>
-</div>
-<div class="card">
-<div class="team"><span>سازنده</span><a href="https://splus.ir/WRATH_HaMi">@WRATH_HaMi</a></div>
-<div class="team"><span>پشتیبان</span><a href="https://splus.ir/IShowMohi">@IShowMohi</a></div>
-<div class="team"><span>همکار</span><a href="https://splus.ir/Parnia_6">@Parnia_6</a></div>
-<div class="team"><span>کانال</span><a href="https://splus.ir/WRATHBOT">@WRATHBOT</a></div>
-</div>
-<a class="btn btn1" href="https://splus.ir/WRATHBOT">ورود به کانال رسمی</a>
-<a class="btn btn2" href="https://splus.ir/WRATH_HaMi">ارتباط با سازنده</a>
-<div class="footer">صفحه ۱ از ۶</div>
+<!-- صفحه ۱ -->
+<div class="page active" id="p1">
+  <div class="header">
+    <div class="logo">⚡</div>
+    <div class="title">WRATHBOT</div>
+    <div class="sub">v3.9.2-turbo • مدیریت گروه سروش پلاس</div>
+  </div>
+  <div class="card intro"><b>WRATHBOT</b> یکی از کامل‌ترین و قوی‌ترین ربات‌های مدیریت گروه سروش پلاسه.<br>بیش از ۳۰ قابلیت عادی + ۲۲ سلاح مدیریتی پرو.</div>
+  <div class="grid">
+    <div class="feat"><i>🎨</i>عکس‌ساز پرو</div>
+    <div class="feat"><i>🤖</i>هوش مصنوعی</div>
+    <div class="feat"><i>🧹</i>پاکسازی</div>
+    <div class="feat"><i>📢</i>تگ ممبر</div>
+    <div class="feat"><i>⚡</i>سرعت بالا</div>
+    <div class="feat"><i>👑</i>۲۲ سلاح پرو</div>
+  </div>
+  <div class="card">
+    <div class="team"><span>سازنده</span><a href="https://splus.ir/WRATH_HaMi">@WRATH_HaMi</a></div>
+    <div class="team"><span>پشتیبان</span><a href="https://splus.ir/IShowMohi">@IShowMohi</a></div>
+    <div class="team"><span>همکار</span><a href="https://splus.ir/Parnia_6">@Parnia_6</a></div>
+    <div class="team"><span>کانال</span><a href="https://splus.ir/WRATHBOT">@WRATHBOT</a></div>
+  </div>
+  <a class="btn btn-red" href="https://splus.ir/WRATHBOT">ورود به کانال رسمی</a>
+  <a class="btn btn-dark" href="https://splus.ir/WRATH_HaMi">ارتباط با سازنده</a>
+  <div class="footer">صفحه ۱ از ۶</div>
 </div>
 
+<!-- صفحه ۲ -->
 <div class="page" id="p2">
-<div class="header"><div class="logo">🛠</div><div class="title">قابلیت‌های اصلی</div><div class="subtitle">مدیریت کامل گروه</div></div>
-<div class="card">
-<div class="row"><div class="icon">1</div><div><h4>پنل ادمین و هویت</h4><p>مدیریت ادمین‌ها</p></div></div>
-<div class="row"><div class="icon">2</div><div><h4>مدیریت گروه</h4><p>کنترل تنظیمات</p></div></div>
-<div class="row"><div class="icon">3</div><div><h4>لیست‌ها و سخنگو</h4><p>ساخت لیست و سخنگو</p></div></div>
-<div class="row"><div class="icon">4</div><div><h4>فیلتر و قفل کلمه</h4><p>فیلتر هوشمند</p></div></div>
-<div class="row"><div class="icon">5</div><div><h4>خوشامد و آمار</h4><p>خوشامدگویی + آمار</p></div></div>
-<div class="row"><div class="icon">6</div><div><h4>ریپلای و میوت</h4><p>سیستم پیشرفته</p></div></div>
-<div class="row"><div class="icon">7</div><div><h4>سکوت و بن</h4><p>مدیریت سکوت و بن</p></div></div>
-<div class="row"><div class="icon">8</div><div><h4>قفل زمان و سرگرمی</h4><p>قفل زمانی + سرگرمی</p></div></div>
-<div class="row"><div class="icon">9</div><div><h4>نبض گروه</h4><p>وضعیت زنده</p></div></div>
-<div class="row"><div class="icon">10</div><div><h4>WRATH پوینت</h4><p>سیستم امتیاز</p></div></div>
-<div class="row"><div class="icon">11</div><div><h4>کشور و یادآور</h4><p>تنظیمات کشور</p></div></div>
-<div class="row"><div class="icon">12</div><div><h4>کنترل تخلف</h4><p>مقابله با تخلف</p></div></div>
-<div class="row"><div class="icon">13</div><div><h4>مترجم و مهمانی</h4><p>ترجمه + مهمانی</p></div></div>
-<div class="row"><div class="icon">14</div><div><h4>لقب و بکاپ</h4><p>لقب + پشتیبان‌گیری</p></div></div>
-</div>
-<div class="footer">صفحه ۲ از ۶</div>
+  <div class="header"><div class="logo">🛠</div><div class="title">قابلیت‌های اصلی</div><div class="sub">مدیریت کامل گروه</div></div>
+  <div class="card">
+    <div class="row"><div class="icon">1</div><div><h4>پنل ادمین و هویت</h4><p>مدیریت ادمین‌ها</p></div></div>
+    <div class="row"><div class="icon">2</div><div><h4>مدیریت گروه</h4><p>کنترل تنظیمات</p></div></div>
+    <div class="row"><div class="icon">3</div><div><h4>لیست‌ها و سخنگو</h4><p>ساخت لیست و سخنگو</p></div></div>
+    <div class="row"><div class="icon">4</div><div><h4>فیلتر و قفل کلمه</h4><p>فیلتر هوشمند</p></div></div>
+    <div class="row"><div class="icon">5</div><div><h4>خوشامد و آمار</h4><p>خوشامدگویی + آمار</p></div></div>
+    <div class="row"><div class="icon">6</div><div><h4>ریپلای و میوت</h4><p>سیستم پیشرفته</p></div></div>
+    <div class="row"><div class="icon">7</div><div><h4>سکوت و بن</h4><p>مدیریت سکوت و بن</p></div></div>
+    <div class="row"><div class="icon">8</div><div><h4>قفل زمان و سرگرمی</h4><p>قفل زمانی + سرگرمی</p></div></div>
+    <div class="row"><div class="icon">9</div><div><h4>نبض گروه</h4><p>وضعیت زنده</p></div></div>
+    <div class="row"><div class="icon">10</div><div><h4>WRATH پوینت</h4><p>سیستم امتیاز</p></div></div>
+    <div class="row"><div class="icon">11</div><div><h4>کشور و یادآور</h4><p>تنظیمات کشور</p></div></div>
+    <div class="row"><div class="icon">12</div><div><h4>کنترل تخلف</h4><p>مقابله با تخلف</p></div></div>
+    <div class="row"><div class="icon">13</div><div><h4>مترجم و مهمانی</h4><p>ترجمه + مهمانی</p></div></div>
+    <div class="row"><div class="icon">14</div><div><h4>لقب و بکاپ</h4><p>لقب + پشتیبان‌گیری</p></div></div>
+  </div>
+  <div class="footer">صفحه ۲ از ۶</div>
 </div>
 
+<!-- صفحه ۳ -->
 <div class="page" id="p3">
-<div class="header"><div class="logo">👑</div><div class="title">۲۲ سلاح پرو</div><div class="subtitle">PRO UNLOCK</div></div>
-<div class="card">
-<div class="row"><div class="icon">👑</div><div><h4>محافظ ادمین <span class="pro">PRO</span></h4><p>محافظت ویژه</p></div></div>
-<div class="row"><div class="icon">⚖️</div><div><h4>دادگاه گروهی <span class="pro">PRO</span></h4><p>سیستم قضاوت</p></div></div>
-<div class="row"><div class="icon">🛡</div><div><h4>نقش و سپر VIP <span class="pro">PRO</span></h4><p>نقش‌های ویژه</p></div></div>
-<div class="row"><div class="icon">📡</div><div><h4>رادار اسپم <span class="pro">PRO</span></h4><p>ضد تبلیغ</p></div></div>
-<div class="row"><div class="icon">🌙</div><div><h4>قفل شبانه <span class="pro">PRO</span></h4><p>قفل خودکار</p></div></div>
-<div class="row"><div class="icon">📢</div><div><h4>تگ ممبر <span class="pro">PRO</span></h4><p>تگ همه</p></div></div>
-<div class="row"><div class="icon">☠️</div><div><h4>کلمه مرگ <span class="pro">PRO</span></h4><p>هشدار فوری</p></div></div>
-<div class="row"><div class="icon">📜</div><div><h4>تأیید قوانین <span class="pro">PRO</span></h4><p>قرنطینه</p></div></div>
-<div class="row"><div class="icon">🤖</div><div><h4>هوش مصنوعی <span class="pro">PRO</span></h4><p>AI + عکس‌ساز</p></div></div>
-<div class="row"><div class="icon">💰</div><div><h4>بازار پرو <span class="pro">PRO</span></h4><p>سیستم اقتصادی</p></div></div>
-<div class="row"><div class="icon">⏰</div><div><h4>پیام زمان‌دار <span class="pro">PRO</span></h4><p>ارسال زمان‌بندی</p></div></div>
-<div class="row"><div class="icon">🗣</div><div><h4>سخنگو دستی <span class="pro">PRO</span></h4><p>کنترل سخنگو</p></div></div>
-<div class="row"><div class="icon">🧹</div><div><h4>پاکسازی پیشرفته <span class="pro">PRO</span></h4><p>حذف هوشمند</p></div></div>
-<div class="row"><div class="icon">🌃</div><div><h4>رسانه شب <span class="pro">PRO</span></h4><p>امضا + رسانه</p></div></div>
-<div class="row"><div class="icon">🎮</div><div><h4>تایم بازی <span class="pro">PRO</span></h4><p>زمان‌بندی</p></div></div>
-<div class="row"><div class="icon">👑</div><div><h4>امپراتور <span class="pro">PRO</span></h4><p>بن هوشمند</p></div></div>
-</div>
-<div class="footer">صفحه ۳ از ۶</div>
+  <div class="header"><div class="logo">👑</div><div class="title">۲۲ سلاح پرو</div><div class="sub">PRO UNLOCK</div></div>
+  <div class="card">
+    <div class="row"><div class="icon">👑</div><div><h4>محافظ ادمین <span class="pro">PRO</span></h4><p>محافظت ویژه</p></div></div>
+    <div class="row"><div class="icon">⚖️</div><div><h4>دادگاه گروهی <span class="pro">PRO</span></h4><p>سیستم قضاوت</p></div></div>
+    <div class="row"><div class="icon">🛡</div><div><h4>نقش و سپر VIP <span class="pro">PRO</span></h4><p>نقش‌های ویژه</p></div></div>
+    <div class="row"><div class="icon">📡</div><div><h4>رادار اسپم <span class="pro">PRO</span></h4><p>ضد تبلیغ</p></div></div>
+    <div class="row"><div class="icon">🌙</div><div><h4>قفل شبانه <span class="pro">PRO</span></h4><p>قفل خودکار</p></div></div>
+    <div class="row"><div class="icon">📢</div><div><h4>تگ ممبر <span class="pro">PRO</span></h4><p>تگ همه</p></div></div>
+    <div class="row"><div class="icon">☠️</div><div><h4>کلمه مرگ <span class="pro">PRO</span></h4><p>هشدار فوری</p></div></div>
+    <div class="row"><div class="icon">📜</div><div><h4>تأیید قوانین <span class="pro">PRO</span></h4><p>قرنطینه</p></div></div>
+    <div class="row"><div class="icon">🤖</div><div><h4>هوش مصنوعی <span class="pro">PRO</span></h4><p>AI + عکس‌ساز</p></div></div>
+    <div class="row"><div class="icon">💰</div><div><h4>بازار پرو <span class="pro">PRO</span></h4><p>سیستم اقتصادی</p></div></div>
+    <div class="row"><div class="icon">⏰</div><div><h4>پیام زمان‌دار <span class="pro">PRO</span></h4><p>ارسال زمان‌بندی</p></div></div>
+    <div class="row"><div class="icon">🗣</div><div><h4>سخنگو دستی <span class="pro">PRO</span></h4><p>کنترل سخنگو</p></div></div>
+    <div class="row"><div class="icon">🧹</div><div><h4>پاکسازی پیشرفته <span class="pro">PRO</span></h4><p>حذف هوشمند</p></div></div>
+    <div class="row"><div class="icon">🌃</div><div><h4>رسانه شب <span class="pro">PRO</span></h4><p>امضا + رسانه</p></div></div>
+    <div class="row"><div class="icon">🎮</div><div><h4>تایم بازی <span class="pro">PRO</span></h4><p>زمان‌بندی</p></div></div>
+    <div class="row"><div class="icon">👑</div><div><h4>امپراتور <span class="pro">PRO</span></h4><p>بن هوشمند</p></div></div>
+  </div>
+  <div class="footer">صفحه ۳ از ۶</div>
 </div>
 
+<!-- صفحه ۴ -->
 <div class="page" id="p4">
-<div class="header"><div class="logo">🎮</div><div class="title">مینی‌گیم‌ها</div><div class="subtitle">سه بازی خفن</div></div>
-<div class="game"><h3>⚡ چالش سرعت</h3><p>وقتی سبز شد سریع ضربه بزن</p><div id="box" class="ready" onclick="reactionClick()">برای شروع ضربه بزن</div><div id="result"></div></div>
-<div class="game"><h3>🔥 کلیکر ۱۰ ثانیه</h3><p>هرچقدر می‌تونی کلیک کن</p><div id="count">0</div><button id="cbtn" onclick="clickerClick()">شروع / کلیک</button><div id="timer">۱۰ ثانیه وقت داری</div></div>
-<div class="game"><h3>🧠 حافظه</h3><p>کارت‌های مشابه رو پیدا کن</p><div class="memory" id="memory"></div><div id="mres" style="text-align:center;margin-top:10px;color:#ff6666;font-size:14px;"></div></div>
-<div class="footer">صفحه ۴ از ۶</div>
+  <div class="header"><div class="logo">🎮</div><div class="title">مینی‌گیم‌ها</div><div class="sub">سه بازی خفن</div></div>
+  <div class="game"><h3>⚡ چالش سرعت</h3><p>وقتی سبز شد سریع ضربه بزن</p><div id="box" class="ready">برای شروع ضربه بزن</div><div id="result"></div></div>
+  <div class="game"><h3>🔥 کلیکر ۱۰ ثانیه</h3><p>هرچقدر می‌تونی کلیک کن</p><div id="count">0</div><button id="cbtn">شروع / کلیک</button><div id="timer">۱۰ ثانیه وقت داری</div></div>
+  <div class="game"><h3>🧠 حافظه</h3><p>کارت‌های مشابه رو پیدا کن</p><div class="memory" id="memory"></div><div id="mres" style="text-align:center;margin-top:10px;color:#ff6666;font-size:14px"></div></div>
+  <div class="footer">صفحه ۴ از ۶</div>
 </div>
 
+<!-- صفحه ۵ -->
 <div class="page" id="p5">
-<div class="header"><div class="logo">💎</div><div class="title">اشتراک پرو</div><div class="subtitle">قیمت‌گذاری هوشمند</div></div>
-<div class="price-box">
-<div class="price-title">📅 انتخاب مدت اشتراک</div>
-<div class="days-display" id="daysNum">7</div>
-<div class="days-label">روز</div>
-<div class="slider-wrap"><input type="range" id="daysSlider" min="1" max="30" value="7" oninput="updatePrice()"></div>
-<div class="quick-days">
-<button onclick="setDays(1)">۱ روز</button>
-<button onclick="setDays(3)">۳ روز</button>
-<button onclick="setDays(7)" class="active">۷ روز</button>
-<button onclick="setDays(15)">۱۵ روز</button>
-<button onclick="setDays(30)">۳۰ روز</button>
-</div>
-<div class="price-result"><div class="label">مبلغ قابل پرداخت</div><div class="amount" id="priceAmount">۲۸,۰۰۰</div><div class="unit">تومان</div></div>
-</div>
-<div class="unlimited-card">
-<div class="unlimited-title">👑 اشتراک نامحدود</div>
-<div class="unlimited-price">۱۵۰,۰۰۰ تومان</div>
-<div class="unlimited-desc">یک‌بار پرداخت • دسترسی دائمی به همه قابلیت‌های پرو</div>
-</div>
-<div class="buy-box"><p>برای خرید اشتراک پرو<br>به آیدی زیر پیام بدید</p><a href="https://splus.ir/WRATH_HaMi">@WRATH_HaMi</a></div>
-<div class="footer">صفحه ۵ از ۶</div>
+  <div class="header"><div class="logo">💎</div><div class="title">اشتراک پرو</div><div class="sub">قیمت‌گذاری هوشمند</div></div>
+  <div class="price-box">
+    <div class="price-title">📅 انتخاب مدت اشتراک</div>
+    <div class="days-display" id="daysNum">7</div>
+    <div class="days-label">روز</div>
+    <input type="range" id="daysSlider" min="1" max="30" value="7">
+    <div class="quick">
+      <button data-d="1">۱ روز</button>
+      <button data-d="3">۳ روز</button>
+      <button data-d="7" class="on">۷ روز</button>
+      <button data-d="15">۱۵ روز</button>
+      <button data-d="30">۳۰ روز</button>
+    </div>
+    <div class="price-result"><div class="label">مبلغ قابل پرداخت</div><div class="amount" id="priceAmount">۲۸,۰۰۰</div><div class="unit">تومان</div></div>
+  </div>
+  <div class="unlimited">
+    <div class="t">👑 اشتراک نامحدود</div>
+    <div class="p">۱۵۰,۰۰۰ تومان</div>
+    <div>یک‌بار پرداخت • دسترسی دائمی</div>
+  </div>
+  <div class="buy"><p>برای خرید به آیدی زیر پیام بدید</p><a href="https://splus.ir/WRATH_HaMi">@WRATH_HaMi</a></div>
+  <div class="footer">صفحه ۵ از ۶</div>
 </div>
 
+<!-- صفحه ۶ -->
 <div class="page" id="p6">
-<div class="header"><div class="logo">🤖</div><div class="title">راهنمای هوشمند</div><div class="subtitle">سوالت رو بپرس</div></div>
-<div class="chat-box">
-<div class="chat-messages" id="chatMessages"><div class="msg bot">سلام! 👋<br>سوالت در مورد دستورات ربات رو بپرس.</div></div>
-<div class="chat-input-area">
-<input type="text" id="chatInput" placeholder="سوالت رو بنویس..." onkeypress="if(event.key==='Enter')sendChat()">
-<button onclick="sendChat()">➤</button>
-</div>
-</div>
-<div class="suggest">
-<button onclick="ask('سخنگو')">سخنگو</button>
-<button onclick="ask('تگ')">تگ ممبر</button>
-<button onclick="ask('قفل')">قفل‌ها</button>
-<button onclick="ask('بن')">بن و سکوت</button>
-<button onclick="ask('خوشامد')">خوشامد</button>
-</div>
-<div class="footer">صفحه ۶ از ۶</div>
-</div>
-
+  <div class="header"><div class="logo">🤖</div><div class="title">راهنمای هوشمند</div><div class="sub">سوالت رو بپرس</div></div>
+  <div class="chat-box">
+    <div class="msgs" id="msgs"><div class="msg bot">سلام! 👋 سوالت در مورد دستورات ربات رو بپرس.</div></div>
+    <div class="input-area">
+      <input type="text" id="chatInput" placeholder="سوالت رو بنویس...">
+      <button id="sendBtn">➤</button>
+    </div>
+  </div>
+  <div class="suggest">
+    <button data-q="سخنگو">سخنگو</button>
+    <button data-q="تگ">تگ ممبر</button>
+    <button data-q="قفل">قفل‌ها</button>
+    <button data-q="بن">بن و سکوت</button>
+    <button data-q="خوشامد">خوشامد</button>
+  </div>
+  <div class="footer">صفحه ۶ از ۶</div>
 </div>
 
-<div class="nav">
-<button class="active" onclick="goToPage(1)"><span>🏠</span>خانه</button>
-<button onclick="goToPage(2)"><span>🛠</span>اصلی</button>
-<button onclick="goToPage(3)"><span>👑</span>پرو</button>
-<button onclick="goToPage(4)"><span>🎮</span>بازی</button>
-<button onclick="goToPage(5)"><span>💎</span>قیمت</button>
-<button onclick="goToPage(6)"><span>🤖</span>راهنما</button>
+</div>
+
+<!-- ناوبری -->
+<div class="nav" id="nav">
+  <button class="nav-btn active" data-page="1"><span>🏠</span>خانه</button>
+  <button class="nav-btn" data-page="2"><span>🛠</span>اصلی</button>
+  <button class="nav-btn" data-page="3"><span>👑</span>پرو</button>
+  <button class="nav-btn" data-page="4"><span>🎮</span>بازی</button>
+  <button class="nav-btn" data-page="5"><span>💎</span>قیمت</button>
+  <button class="nav-btn" data-page="6"><span>🤖</span>راهنما</button>
 </div>
 
 <script>
-function goToPage(n){
-  var pages=document.querySelectorAll('.page');
-  for(var i=0;i<pages.length;i++) pages[i].classList.remove('show');
-  var buttons=document.querySelectorAll('.nav button');
-  for(var i=0;i<buttons.length;i++) buttons[i].classList.remove('active');
-  var page=document.getElementById('p'+n);
-  if(page) page.classList.add('show');
-  if(buttons[n-1]) buttons[n-1].classList.add('active');
-  window.scrollTo(0,0);
-  if(n===4) setTimeout(initMemory,50);
-}
-function formatNum(n){return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,"،");}
-function updatePrice(){
+(function(){
+  // ناوبری
+  var nav=document.getElementById('nav');
+  nav.addEventListener('click',function(e){
+    var btn=e.target.closest('.nav-btn');
+    if(!btn)return;
+    var n=btn.getAttribute('data-page');
+    document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active')});
+    document.querySelectorAll('.nav-btn').forEach(function(b){b.classList.remove('active')});
+    document.getElementById('p'+n).classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo(0,0);
+    if(n==='4')setTimeout(initMemory,40);
+  });
+
+  // قیمت
   var slider=document.getElementById('daysSlider');
-  var days=parseInt(slider.value)||7;
-  document.getElementById('daysNum').textContent=days;
-  document.getElementById('priceAmount').textContent=formatNum(days*4000);
-  var btns=document.querySelectorAll('.quick-days button');
-  for(var i=0;i<btns.length;i++) btns[i].classList.remove('active');
-  if(days===1) btns[0].classList.add('active');
-  else if(days===3) btns[1].classList.add('active');
-  else if(days===7) btns[2].classList.add('active');
-  else if(days===15) btns[3].classList.add('active');
-  else if(days===30) btns[4].classList.add('active');
-}
-function setDays(d){document.getElementById('daysSlider').value=d;updatePrice();}
-var rState='ready',rStart=0,rTimer=null;
-function reactionClick(){
-  var box=document.getElementById('box');
-  var result=document.getElementById('result');
-  if(rState==='ready'){
-    rState='waiting';box.className='';box.style.background='#111';box.style.borderColor='#555';box.textContent='صبر کن...';result.textContent='';
-    rTimer=setTimeout(function(){rState='go';box.className='go';box.textContent='الان بزن!';rStart=performance.now();},1400+Math.random()*2500);
-  }else if(rState==='waiting'){
-    clearTimeout(rTimer);rState='ready';box.className='fail';box.textContent='خیلی زود زدی!';result.textContent='دوباره امتحان کن';
-    setTimeout(function(){box.className='ready';box.textContent='برای شروع ضربه بزن';result.textContent='';},1400);
-  }else if(rState==='go'){
-    var t=Math.round(performance.now()-rStart);rState='ready';box.className='ready';box.textContent='برای شروع ضربه بزن';result.textContent=t+' میلی‌ثانیه';
+  function upd(){
+    var d=parseInt(slider.value)||7;
+    document.getElementById('daysNum').textContent=d;
+    document.getElementById('priceAmount').textContent=(d*4000).toString().replace(/\B(?=(\d{3})+(?!\d))/g,'،');
+    document.querySelectorAll('.quick button').forEach(function(b){
+      b.classList.toggle('on',parseInt(b.getAttribute('data-d'))===d);
+    });
   }
-}
-var cCount=0,cRunning=false,cTimeLeft=10,cInterval=null;
-function clickerClick(){
-  var countEl=document.getElementById('count');
-  var cbtn=document.getElementById('cbtn');
-  var timerEl=document.getElementById('timer');
-  if(!cRunning){
-    cRunning=true;cCount=0;cTimeLeft=10;countEl.textContent='0';timerEl.textContent='۱۰ ثانیه وقت داری';cbtn.textContent='کلیک کن!';
-    cInterval=setInterval(function(){cTimeLeft--;timerEl.textContent=cTimeLeft+' ثانیه باقی‌مانده';if(cTimeLeft<=0){clearInterval(cInterval);cRunning=false;cbtn.textContent='شروع دوباره';timerEl.textContent='تموم شد! امتیاز: '+cCount;}},1000);
-  }else{cCount++;countEl.textContent=cCount;}
-}
-var emojis=['🔥','⚡','👑','💀','🎮','💎','🚀','🌙'],cards=[],flipped=[],matched=0,lock=false;
-function initMemory(){
-  var mem=document.getElementById('memory');var mres=document.getElementById('mres');
-  mem.innerHTML='';mres.textContent='';matched=0;flipped=[];lock=false;
-  cards=emojis.concat(emojis).sort(function(){return Math.random()-0.5;});
-  for(var i=0;i<cards.length;i++){
-    var div=document.createElement('div');div.className='mcard';div.setAttribute('data-emoji',cards[i]);
-    div.onclick=function(){onCardClick(this);};mem.append
+  slider.addEventListener('input',upd);
+  document.querySelectorAll('.quick button').forEach(function(b){
+    b.addEventListener('click',function(){slider.value=this.getAttribute('data-d');upd();});
+  });
+
+  // بازی واکنش
+  var st='ready',stime=0,tmr=null;
+  var box=document.getElementById('box'),res=document.getElementById('result');
+  box.addEventListener('click',function(){
+    if(st==='ready'){
+      st='wait';box.className='';box.style.background='#111';box.style.borderColor='#555';box.textContent='صبر کن...';res.textContent='';
+      tmr=setTimeout(function(){st='go';box.className='go';box.textContent='الان بزن!';stime=performance.now();},1400+Math.random()*2500);
+    }else if(st==='wait'){
+      clearTimeout(tmr);st='ready';box.className='fail';box.textContent='خیلی زود زدی!';res.textContent='دوباره امتحان کن';
+      setTimeout(function(){box.className='ready';box.textContent='برای شروع ضربه بزن';res.textContent='';},1400);
+    }else if(st==='go'){
+      var t=Math.round(performance.now()-stime);st='ready';box.className='ready';box.textContent='برای شروع ضربه بزن';res.textContent=t+' میلی‌ثانیه';
+    }
+  });
+
+  // کلیکر
+  var cnt=0,run=false,left=10,iv=null;
+  document.getElementById('cbtn').addEventListener('click',function(){
+    var c=document.getElementById('count'),b=document.getElementById('cbtn'),t=document.getElementById('timer');
+    if(!run){
+      run=true;cnt=0;left=10;c.textContent='0';t.textContent='۱۰ ثانیه وقت داری';b.textContent='کلیک کن!';
+      iv=setInterval(function(){left--;t.textContent=left+' ثانیه باقی‌مانده';if(left<=0){clearInterval(iv);run=false;b.textContent='شروع دوباره';t.textContent='تموم شد! امتیاز: '+cnt;}},1000);
+    }else{cnt++;c.textContent=cnt;}
+  });
+
+  // حافظه
+  var em=['🔥','⚡','👑','💀','🎮','💎','🚀','🌙'],cds=[],fl=[],mt=0,lk=false;
+  function initMemory(){
+    var m=document.getElementById('memory'),r=document.getElementById('mres');
+    m.innerHTML='';r.textContent='';mt=0;fl=[];lk=false;
+    cds=em.concat(em).sort(function(){return Math.random()-0.5});
+    cds.forEach(function(e){
+      var d=document.createElement('div');d.className='mcard';d.dataset.e=e;
+      d.onclick=function(){if(lk||this.classList.contains('on')||this.classList.contains('ok'))return;this.classList.add('on');this.textContent=this.dataset.e;fl.push(this);if(fl.length===2){lk=true;var a=fl[0],b=fl[1];if(a.dataset.e===b.dataset.e){a.classList.add('ok');b.classList.add('ok');mt+=2;fl=[];lk=false;if(mt===cds.leng
