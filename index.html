@@ -16,7 +16,7 @@ radial-gradient(circle at 50% 40%,rgba(100,0,0,.35) 0%,transparent 55%),
 
 .container{max-width:440px;margin:0 auto;padding:16px 14px 120px}
 
-/* ========== NAV ========== */
+/* NAV */
 .nav{
   position:fixed;bottom:0;left:0;right:0;
   background:rgba(6,6,6,.97);
@@ -31,12 +31,11 @@ radial-gradient(circle at 50% 40%,rgba(100,0,0,.35) 0%,transparent 55%),
   font-size:11px;display:flex;flex-direction:column;
   align-items:center;gap:5px;padding:8px 6px;
   border-radius:18px;min-width:52px;cursor:pointer;
-  transition:color .25s,transform .15s;position:relative;
+  transition:color .25s,transform .15s;
   -webkit-user-select:none;user-select:none;
 }
 .nav button span{
-  font-size:24px;display:block;transition:all .3s;
-  line-height:1;
+  font-size:24px;display:block;transition:all .3s;line-height:1;
 }
 .nav button.active{color:#ff3b3b}
 .nav button.active span{
@@ -45,52 +44,32 @@ radial-gradient(circle at 50% 40%,rgba(100,0,0,.35) 0%,transparent 55%),
 }
 @keyframes superNeon{
   0%,100%{
-    text-shadow:
-      0 0 4px #ff2222,
-      0 0 12px #ff2222,
-      0 0 22px #ff0000,
-      0 0 38px rgba(255,0,0,.9),
-      0 0 55px rgba(255,30,30,.7);
+    text-shadow:0 0 4px #ff2222,0 0 12px #ff2222,0 0 22px #ff0000,0 0 38px rgba(255,0,0,.9),0 0 55px rgba(255,30,30,.7);
     filter:brightness(1.1);
   }
   50%{
-    text-shadow:
-      0 0 10px #ff5555,
-      0 0 24px #ff3333,
-      0 0 42px #ff0000,
-      0 0 70px rgba(255,0,0,1),
-      0 0 100px rgba(255,40,40,.95);
+    text-shadow:0 0 10px #ff5555,0 0 24px #ff3333,0 0 42px #ff0000,0 0 70px rgba(255,0,0,1),0 0 100px rgba(255,40,40,.95);
     filter:brightness(1.5);
   }
 }
 .nav button:active{transform:scale(.88)}
 
-/* ========== PAGES ========== */
 .page{display:none}
 .page.show{display:block;animation:fadeIn .35s ease}
 @keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 
-/* ========== HEADER & LOGO ========== */
 .header{text-align:center;margin-bottom:22px;padding-top:8px}
 .logo{
-  width:96px;height:96px;margin:0 auto 14px;
-  border-radius:50%;
+  width:96px;height:96px;margin:0 auto 14px;border-radius:50%;
   background:linear-gradient(145deg,#c00000,#ff1a1a 50%,#ff4444);
-  display:flex;align-items:center;justify-content:center;
-  font-size:42px;
-  box-shadow:
-    0 0 25px rgba(255,30,30,.7),
-    0 0 50px rgba(255,0,0,.4),
-    0 0 80px rgba(255,0,0,.2),
-    inset 0 0 20px rgba(255,255,255,.15);
+  display:flex;align-items:center;justify-content:center;font-size:42px;
+  box-shadow:0 0 25px rgba(255,30,30,.7),0 0 50px rgba(255,0,0,.4),0 0 80px rgba(255,0,0,.2),inset 0 0 20px rgba(255,255,255,.15);
   border:3px solid rgba(255,255,255,.2);
-  animation:logoPulse 2.5s ease-in-out infinite;
-  position:relative;
+  animation:logoPulse 2.5s ease-in-out infinite;position:relative;
 }
 .logo::after{
   content:'';position:absolute;inset:-6px;border-radius:50%;
-  border:2px solid rgba(255,50,50,.3);
-  animation:ringPulse 2.5s ease-in-out infinite;
+  border:2px solid rgba(255,50,50,.3);animation:ringPulse 2.5s ease-in-out infinite;
 }
 @keyframes logoPulse{
   0%,100%{box-shadow:0 0 25px rgba(255,30,30,.7),0 0 50px rgba(255,0,0,.4),0 0 80px rgba(255,0,0,.2)}
@@ -100,40 +79,20 @@ radial-gradient(circle at 50% 40%,rgba(100,0,0,.35) 0%,transparent 55%),
   0%,100%{transform:scale(1);opacity:.6}
   50%{transform:scale(1.08);opacity:1}
 }
-.title{
-  font-size:30px;font-weight:800;color:#fff;
-  text-shadow:0 0 20px rgba(255,50,50,.5);
-  letter-spacing:1px;
-}
+.title{font-size:30px;font-weight:800;color:#fff;text-shadow:0 0 20px rgba(255,50,50,.5);letter-spacing:1px}
 .subtitle{color:#aaa;font-size:13px;margin-top:5px}
 
-/* ========== CARDS ========== */
-.card{
-  background:rgba(12,12,12,.92);
-  border:1px solid rgba(255,40,40,.28);
-  border-radius:18px;padding:16px;margin-bottom:14px;
-  box-shadow:0 4px 20px rgba(0,0,0,.4);
-}
+.card{background:rgba(12,12,12,.92);border:1px solid rgba(255,40,40,.28);border-radius:18px;padding:16px;margin-bottom:14px;box-shadow:0 4px 20px rgba(0,0,0,.4)}
 .intro{font-size:14px;line-height:1.75;color:#ddd}
 .intro b{color:#ff4444;font-weight:700}
 
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
-.feat{
-  background:linear-gradient(145deg,rgba(180,0,0,.2),rgba(80,0,0,.15));
-  border:1px solid rgba(255,50,50,.35);
-  border-radius:14px;padding:14px 8px;text-align:center;font-size:12.5px;
-  transition:transform .2s,box-shadow .2s;
-}
-.feat:active{transform:scale(.96)}
+.feat{background:linear-gradient(145deg,rgba(180,0,0,.2),rgba(80,0,0,.15));border:1px solid rgba(255,50,50,.35);border-radius:14px;padding:14px 8px;text-align:center;font-size:12.5px}
 .feat span{display:block;font-size:26px;margin-bottom:6px}
 
 .row{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.06);align-items:center}
 .row:last-child{border-bottom:none}
-.icon{
-  width:40px;height:40px;background:rgba(180,0,0,.28);
-  border-radius:12px;display:flex;align-items:center;justify-content:center;
-  font-size:17px;flex-shrink:0;
-}
+.icon{width:40px;height:40px;background:rgba(180,0,0,.28);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
 .row h4{font-size:13.5px;margin-bottom:2px}
 .row p{font-size:11.5px;color:#888}
 .pro{background:#ff2222;color:#fff;font-size:9px;padding:2px 7px;border-radius:10px;margin-right:5px}
@@ -143,64 +102,28 @@ radial-gradient(circle at 50% 40%,rgba(100,0,0,.35) 0%,transparent 55%),
 .team span{color:#888}
 .team a{color:#ff4444;text-decoration:none;font-weight:600}
 
-.btn{
-  display:block;text-align:center;padding:14px;border-radius:14px;
-  font-weight:700;font-size:14.5px;text-decoration:none;margin-bottom:10px;
-  transition:transform .15s,box-shadow .2s;
-}
-.btn:active{transform:scale(.97)}
-.btn1{
-  background:linear-gradient(90deg,#8b0000,#ff2222);
-  color:#fff;box-shadow:0 4px 22px rgba(255,30,30,.45);
-}
-.btn2{
-  background:rgba(255,255,255,.06);color:#ddd;
-  border:1px solid rgba(255,40,40,.35);
-}
+.btn{display:block;text-align:center;padding:14px;border-radius:14px;font-weight:700;font-size:14.5px;text-decoration:none;margin-bottom:10px}
+.btn1{background:linear-gradient(90deg,#8b0000,#ff2222);color:#fff;box-shadow:0 4px 22px rgba(255,30,30,.45)}
+.btn2{background:rgba(255,255,255,.06);color:#ddd;border:1px solid rgba(255,40,40,.35)}
 
-/* ========== GAMES ========== */
-.game{
-  background:rgba(12,12,12,.92);border:1px solid rgba(255,40,40,.28);
-  border-radius:18px;padding:16px;margin-bottom:14px;
-}
+.game{background:rgba(12,12,12,.92);border:1px solid rgba(255,40,40,.28);border-radius:18px;padding:16px;margin-bottom:14px}
 .game h3{font-size:15px;color:#ff6666;margin-bottom:5px}
 .game p{font-size:12.5px;color:#888;margin-bottom:12px}
-#box{
-  height:84px;border-radius:14px;background:#111;
-  display:flex;align-items:center;justify-content:center;
-  font-size:16px;font-weight:700;border:2px solid #333;
-  cursor:pointer;user-select:none;transition:all .15s;
-}
+#box{height:84px;border-radius:14px;background:#111;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;border:2px solid #333;cursor:pointer;user-select:none}
 #box.ready{border-color:#ff2222;box-shadow:0 0 15px rgba(255,30,30,.3)}
-#box.go{background:#00aa44;color:#fff;border-color:#00aa44;box-shadow:0 0 20px rgba(0,170,70,.5)}
+#box.go{background:#00aa44;color:#fff;border-color:#00aa44}
 #box.fail{background:#cc0000;color:#fff}
 #result{margin-top:10px;text-align:center;font-size:14px;color:#ff6666;min-height:20px}
 #count{font-size:40px;font-weight:800;color:#ff4444;text-align:center;margin:8px 0}
-#cbtn{
-  display:block;margin:0 auto;
-  background:linear-gradient(90deg,#8b0000,#ff2222);
-  border:none;color:#fff;padding:12px 40px;border-radius:30px;
-  font-size:15px;font-weight:700;cursor:pointer;
-}
+#cbtn{display:block;margin:0 auto;background:linear-gradient(90deg,#8b0000,#ff2222);border:none;color:#fff;padding:12px 40px;border-radius:30px;font-size:15px;font-weight:700;cursor:pointer}
 #timer{text-align:center;font-size:13px;color:#888;margin-top:8px}
 .memory{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.mcard{
-  aspect-ratio:1;background:rgba(180,0,0,.18);border-radius:12px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:24px;border:1px solid rgba(255,40,40,.3);
-  cursor:pointer;user-select:none;transition:all .2s;
-}
+.mcard{aspect-ratio:1;background:rgba(180,0,0,.18);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;border:1px solid rgba(255,40,40,.3);cursor:pointer;user-select:none}
 .mcard.on,.mcard.ok{background:rgba(255,50,50,.35);border-color:#ff4444}
 .mcard.ok{opacity:.4;pointer-events:none}
 .footer{text-align:center;margin-top:18px;font-size:12px;color:#555}
 
-/* ========== PRICE ========== */
-.price-box{
-  background:linear-gradient(145deg,rgba(40,5,5,.96),rgba(12,0,0,.98));
-  border:1px solid rgba(255,50,50,.4);border-radius:20px;
-  padding:20px 16px;margin-bottom:16px;
-  box-shadow:0 0 35px rgba(255,20,20,.2);
-}
+.price-box{background:linear-gradient(145deg,rgba(40,5,5,.96),rgba(12,0,0,.98));border:1px solid rgba(255,50,50,.4);border-radius:20px;padding:20px 16px;margin-bottom:16px;box-shadow:0 0 35px rgba(255,20,20,.2)}
 .price-title{text-align:center;font-size:16px;font-weight:700;color:#ff5555;margin-bottom:16px}
 .days-display{text-align:center;font-size:46px;font-weight:800;color:#fff;margin:8px 0 4px}
 .days-label{text-align:center;font-size:14px;color:#aaa;margin-bottom:16px}
@@ -208,69 +131,37 @@ radial-gradient(circle at 50% 40%,rgba(100,0,0,.35) 0%,transparent 55%),
 input[type=range]{width:100%;height:8px;-webkit-appearance:none;appearance:none;background:#222;border-radius:10px;outline:none}
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;background:linear-gradient(135deg,#ff2222,#cc0000);border-radius:50%;cursor:pointer;box-shadow:0 0 14px rgba(255,50,50,.7)}
 .quick-days{display:flex;gap:7px;justify-content:center;flex-wrap:wrap;margin-bottom:18px}
-.quick-days button{
-  background:rgba(180,0,0,.22);border:1px solid rgba(255,50,50,.35);
-  color:#ddd;padding:8px 14px;border-radius:22px;font-size:13px;
-  font-weight:600;cursor:pointer;transition:all .2s;
-}
-.quick-days button.active{
-  background:linear-gradient(90deg,#8b0000,#ff2222);border:none;color:#fff;
-  box-shadow:0 0 16px rgba(255,40,40,.55);
-}
+.quick-days button{background:rgba(180,0,0,.22);border:1px solid rgba(255,50,50,.35);color:#ddd;padding:8px 14px;border-radius:22px;font-size:13px;font-weight:600;cursor:pointer}
+.quick-days button.active{background:linear-gradient(90deg,#8b0000,#ff2222);border:none;color:#fff;box-shadow:0 0 16px rgba(255,40,40,.55)}
 .price-result{background:rgba(0,0,0,.45);border-radius:14px;padding:16px;text-align:center}
 .price-result .label{font-size:13px;color:#999;margin-bottom:5px}
 .price-result .amount{font-size:30px;font-weight:800;color:#ff4444}
 .price-result .unit{font-size:14px;color:#aaa}
-.unlimited-card{
-  background:linear-gradient(135deg,rgba(180,0,0,.32),rgba(50,0,0,.4));
-  border:1px solid rgba(255,80,80,.45);border-radius:18px;
-  padding:18px;text-align:center;margin-bottom:16px;position:relative;overflow:hidden;
-}
+.unlimited-card{background:linear-gradient(135deg,rgba(180,0,0,.32),rgba(50,0,0,.4));border:1px solid rgba(255,80,80,.45);border-radius:18px;padding:18px;text-align:center;margin-bottom:16px;position:relative;overflow:hidden}
 .unlimited-card::before{content:"👑";position:absolute;top:-12px;left:-12px;font-size:70px;opacity:.12}
 .unlimited-title{font-size:16px;font-weight:700;color:#ffcc00;margin-bottom:7px}
 .unlimited-price{font-size:28px;font-weight:800;color:#fff;margin-bottom:5px}
 .unlimited-desc{font-size:13px;color:#bbb}
-.buy-box{
-  background:rgba(12,12,12,.92);border:1px solid rgba(255,40,40,.3);
-  border-radius:18px;padding:18px;text-align:center;
-}
+.buy-box{background:rgba(12,12,12,.92);border:1px solid rgba(255,40,40,.3);border-radius:18px;padding:18px;text-align:center}
 .buy-box p{font-size:14px;color:#ccc;margin-bottom:14px;line-height:1.65}
-.buy-box a{
-  display:inline-block;background:linear-gradient(90deg,#8b0000,#ff2222);
-  color:#fff;padding:13px 32px;border-radius:30px;font-weight:700;
-  font-size:15px;text-decoration:none;box-shadow:0 4px 20px rgba(255,30,30,.45);
-}
+.buy-box a{display:inline-block;background:linear-gradient(90deg,#8b0000,#ff2222);color:#fff;padding:13px 32px;border-radius:30px;font-weight:700;font-size:15px;text-decoration:none;box-shadow:0 4px 20px rgba(255,30,30,.45)}
 
-/* ========== CHAT ========== */
-.chat-box{
-  background:rgba(10,10,10,.95);border:1px solid rgba(255,40,40,.28);
-  border-radius:20px;padding:16px;height:380px;display:flex;flex-direction:column;
-}
+.chat-box{background:rgba(10,10,10,.95);border:1px solid rgba(255,40,40,.28);border-radius:20px;padding:16px;height:380px;display:flex;flex-direction:column}
 .chat-messages{flex:1;overflow-y:auto;padding:8px;display:flex;flex-direction:column;gap:12px}
 .msg{max-width:85%;padding:11px 14px;border-radius:16px;font-size:13.5px;line-height:1.6}
 .msg.bot{background:rgba(180,0,0,.22);border:1px solid rgba(255,50,50,.25);align-self:flex-start}
 .msg.user{background:rgba(255,255,255,.09);align-self:flex-end}
 .chat-input-area{display:flex;gap:8px;margin-top:12px}
-.chat-input-area input{
-  flex:1;background:rgba(255,255,255,.07);border:1px solid rgba(255,40,40,.35);
-  border-radius:14px;padding:12px 14px;color:#fff;font-size:14.5px;outline:none;
-}
-.chat-input-area button{
-  background:linear-gradient(135deg,#ff2222,#cc0000);border:none;color:#fff;
-  width:48px;border-radius:14px;font-size:20px;cursor:pointer;
-}
+.chat-input-area input{flex:1;background:rgba(255,255,255,.07);border:1px solid rgba(255,40,40,.35);border-radius:14px;padding:12px 14px;color:#fff;font-size:14.5px;outline:none}
+.chat-input-area button{background:linear-gradient(135deg,#ff2222,#cc0000);border:none;color:#fff;width:48px;border-radius:14px;font-size:20px;cursor:pointer}
 .suggest{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
-.suggest button{
-  background:rgba(180,0,0,.2);border:1px solid rgba(255,50,50,.3);
-  color:#ddd;padding:7px 13px;border-radius:20px;font-size:12.5px;cursor:pointer;
-}
+.suggest button{background:rgba(180,0,0,.2);border:1px solid rgba(255,50,50,.3);color:#ddd;padding:7px 13px;border-radius:20px;font-size:12.5px;cursor:pointer}
 </style>
 </head>
 <body>
 <div class="bg"></div>
 <div class="container">
 
-<!-- صفحه ۱: خانه -->
 <div class="page show" id="p1">
   <div class="header">
     <div class="logo">⚡</div>
@@ -300,7 +191,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;heigh
   <div class="footer">صفحه ۱ از ۶</div>
 </div>
 
-<!-- صفحه ۲ -->
 <div class="page" id="p2">
   <div class="header"><div class="logo">🛠</div><div class="title">قابلیت‌های اصلی</div><div class="subtitle">مدیریت کامل گروه</div></div>
   <div class="card">
@@ -308,21 +198,20 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;heigh
     <div class="row"><div class="icon">2</div><div><h4>مدیریت گروه</h4><p>کنترل تنظیمات</p></div></div>
     <div class="row"><div class="icon">3</div><div><h4>لیست‌ها و سخنگو</h4><p>ساخت لیست و سخنگو</p></div></div>
     <div class="row"><div class="icon">4</div><div><h4>فیلتر و قفل کلمه</h4><p>فیلتر هوشمند</p></div></div>
-    <div class="row"><div class="icon">5</div><div><h4>خوشامد و آمار</h4><p>خوشامدگویی + آمار</p></div></div>
-    <div class="row"><div class="icon">6</div><div><h4>ریپلای و میوت</h4><p>سیستم پیشرفته</p></div></div>
-    <div class="row"><div class="icon">7</div><div><h4>سکوت و بن</h4><p>مدیریت سکوت و بن</p></div></div>
-    <div class="row"><div class="icon">8</div><div><h4>قفل زمان و سرگرمی</h4><p>قفل زمانی + سرگرمی</p></div></div>
-    <div class="row"><div class="icon">9</div><div><h4>نبض گروه</h4><p>وضعیت زنده</p></div></div>
-    <div class="row"><div class="icon">10</div><div><h4>WRATH پوینت</h4><p>سیستم امتیاز</p></div></div>
-    <div class="row"><div class="icon">11</div><div><h4>کشور و یادآور</h4><p>تنظیمات کشور</p></div></div>
-    <div class="row"><div class="icon">12</div><div><h4>کنترل تخلف</h4><p>مقابله با تخلف</p></div></div>
-    <div class="row"><div class="icon">13</div><div><h4>مترجم و مهمانی</h4><p>ترجمه + مهمانی</p></div></div>
-    <div class="row"><div class="icon">14</div><div><h4>لقب و بکاپ</h4><p>لقب + پشتیبان‌گیری</p></div></div>
+    <div class="row"><div class="icon">5</div><div><h4>ریپلای و میوت</h4><p>سیستم پیشرفته</p></div></div>
+    <div class="row"><div class="icon">6</div><div><h4>سکوت و بن</h4><p>مدیریت سکوت و بن</p></div></div>
+    <div class="row"><div class="icon">7</div><div><h4>قفل زمان و سرگرمی</h4><p>قفل زمانی + سرگرمی</p></div></div>
+    <div class="row"><div class="icon">8</div><div><h4>نبض گروه</h4><p>وضعیت زنده</p></div></div>
+    <div class="row"><div class="icon">9</div><div><h4>WRATH پوینت</h4><p>سیستم امتیاز</p></div></div>
+    <div class="row"><div class="icon">10</div><div><h4>کشور و یادآور</h4><p>تنظیمات کشور</p></div></div>
+    <div class="row"><div class="icon">11</div><div><h4>کنترل تخلف</h4><p>مقابله با تخلف</p></div></div>
+    <div class="row"><div class="icon">12</div><div><h4>مترجم و مهمانی</h4><p>ترجمه + مهمانی</p></div></div>
+    <div class="row"><div class="icon">13</div><div><h4>لقب و بکاپ</h4><p>لقب + پشتیبان‌گیری</p></div></div>
+    <div class="row"><div class="icon">14</div><div><h4>خوشامد و آمار</h4><p>خوشامدگویی + آمار</p></div></div>
   </div>
   <div class="footer">صفحه ۲ از ۶</div>
 </div>
 
-<!-- صفحه ۳ -->
 <div class="page" id="p3">
   <div class="header"><div class="logo">👑</div><div class="title">۲۲ سلاح پرو</div><div class="subtitle">PRO UNLOCK</div></div>
   <div class="card">
@@ -346,7 +235,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;heigh
   <div class="footer">صفحه ۳ از ۶</div>
 </div>
 
-<!-- صفحه ۴: بازی‌ها -->
 <div class="page" id="p4">
   <div class="header"><div class="logo">🎮</div><div class="title">مینی‌گیم‌ها</div><div class="subtitle">سه بازی خفن</div></div>
   <div class="game">
@@ -371,7 +259,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;heigh
   <div class="footer">صفحه ۴ از ۶</div>
 </div>
 
-<!-- صفحه ۵: قیمت -->
 <div class="page" id="p5">
   <div class="header"><div class="logo">💎</div><div class="title">اشتراک پرو</div><div class="subtitle">قیمت‌گذاری هوشمند</div></div>
   <div class="price-box">
@@ -404,7 +291,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;heigh
   <div class="footer">صفحه ۵ از ۶</div>
 </div>
 
-<!-- صفحه ۶: راهنما -->
 <div class="page" id="p6">
   <div class="header"><div class="logo">🤖</div><div class="title">راهنمای هوشمند</div><div class="subtitle">سوالت رو بپرس</div></div>
   <div class="chat-box">
@@ -428,11 +314,46 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;heigh
 
 </div>
 
-<!-- ناوبری پایین -->
 <div class="nav" id="nav">
   <button class="active" data-page="1"><span>🏠</span>خانه</button>
   <button data-page="2"><span>🛠</span>اصلی</button>
   <button data-page="3"><span>👑</span>پرو</button>
   <button data-page="4"><span>🎮</span>بازی</button>
   <button data-page="5"><span>💎</span>قیمت</button>
-  <button dat
+  <button data-page="6"><span>🤖</span>راهنما</button>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  // ========== ناوبری ==========
+  function goToPage(n) {
+    // مخفی کردن همه صفحات
+    var pages = document.querySelectorAll('.page');
+    for (var i = 0; i < pages.length; i++) {
+      pages[i].classList.remove('show');
+    }
+
+    // حذف active از همه دکمه‌ها
+    var buttons = document.querySelectorAll('.nav button');
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].classList.remove('active');
+    }
+
+    // نمایش صفحه مورد نظر
+    var targetPage = document.getElementById('p' + n);
+    if (targetPage) {
+      targetPage.classList.add('show');
+    }
+
+    // فعال کردن دکمه
+    var targetBtn = document.querySelector('.nav button[data-page="' + n + '"]');
+    if (targetBtn) {
+      targetBtn.classList.add('active');
+    }
+
+    window.scrollTo(0, 0);
+
+    // اگر صفحه بازی بود، حافظه را ریست کن
+    if (n === '4') {
+      setTim
