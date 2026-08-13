@@ -16,8 +16,8 @@
 }
 
 body {
-    background: #050505;
-    color: #f0f0f0;
+    background: #030303;
+    color: #eee;
     min-height: 100vh;
     overflow-x: hidden;
 }
@@ -26,10 +26,9 @@ body {
     position: fixed;
     inset: 0;
     background: 
-        radial-gradient(ellipse at 15% 15%, rgba(90, 0, 0, 0.18) 0%, transparent 45%),
-        radial-gradient(ellipse at 85% 85%, rgba(60, 0, 0, 0.15) 0%, transparent 45%),
-        radial-gradient(circle at 50% 50%, rgba(20, 0, 0, 0.25) 0%, transparent 65%),
-        #050505;
+        radial-gradient(ellipse at 20% 10%, rgba(80, 0, 0, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 90%, rgba(50, 0, 0, 0.12) 0%, transparent 50%),
+        #030303;
     z-index: -1;
 }
 
@@ -39,127 +38,144 @@ body {
     padding: 16px 14px 100px;
 }
 
+/* ناوبری */
 .nav {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(8, 8, 8, 0.97);
-    border-top: 1px solid rgba(140, 0, 0, 0.35);
+    background: rgba(5, 5, 5, 0.98);
+    border-top: 1px solid rgba(120, 0, 0, 0.4);
     display: flex;
     justify-content: space-around;
-    padding: 10px 4px 14px;
+    padding: 10px 4px 16px;
     z-index: 1000;
 }
 
 .nav button {
     background: none;
     border: none;
-    color: #555;
+    color: #444;
     font-size: 11px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 3px;
-    padding: 6px 7px;
-    border-radius: 10px;
+    padding: 6px 8px;
+    border-radius: 12px;
+    transition: 0.2s;
 }
 
 .nav button.active {
-    color: #ff3333;
-    background: rgba(140, 0, 0, 0.2);
+    color: #ff2a2a;
+    background: rgba(120, 0, 0, 0.25);
 }
 
 .nav button span {
-    font-size: 18px;
+    font-size: 20px;
 }
 
-.page { display: none; }
-.page.show { display: block; }
+/* صفحات */
+.page {
+    display: none;
+    animation: fadeIn 0.25s ease;
+}
+.page.show {
+    display: block;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
+/* هدر */
 .header {
     text-align: center;
-    margin-bottom: 20px;
-    padding-top: 8px;
+    margin-bottom: 22px;
+    padding-top: 10px;
 }
 
 .logo {
-    width: 78px;
-    height: 78px;
-    margin: 0 auto 10px;
+    width: 84px;
+    height: 84px;
+    margin: 0 auto 12px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #6b0000, #e01010);
+    background: linear-gradient(135deg, #5a0000, #d40000);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 32px;
-    box-shadow: 0 0 28px rgba(140, 0, 0, 0.45);
-    border: 2px solid rgba(255,255,255,0.08);
+    font-size: 36px;
+    box-shadow: 0 0 40px rgba(160, 0, 0, 0.5);
+    border: 2px solid rgba(255,255,255,0.07);
 }
 
 .title {
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 800;
     color: #fff;
+    letter-spacing: -0.5px;
 }
 
 .subtitle {
-    color: #777;
+    color: #666;
     font-size: 12px;
-    margin-top: 3px;
+    margin-top: 4px;
 }
 
+/* کارت */
 .card {
-    background: rgba(14, 14, 14, 0.9);
-    border: 1px solid rgba(140, 0, 0, 0.28);
-    border-radius: 14px;
-    padding: 14px;
-    margin-bottom: 12px;
+    background: rgba(12, 12, 12, 0.95);
+    border: 1px solid rgba(100, 0, 0, 0.35);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 14px;
 }
 
 .intro {
     font-size: 13.5px;
-    line-height: 1.7;
-    color: #ccc;
+    line-height: 1.75;
+    color: #bbb;
+}
+.intro b {
+    color: #ff3333;
 }
 
-.intro b { color: #ff4444; }
-
+/* گرید */
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    margin: 12px 0;
+    gap: 10px;
+    margin: 14px 0;
 }
 
 .feat {
-    background: rgba(120, 0, 0, 0.15);
-    border: 1px solid rgba(140, 0, 0, 0.3);
-    border-radius: 10px;
-    padding: 12px 6px;
+    background: rgba(90, 0, 0, 0.2);
+    border: 1px solid rgba(120, 0, 0, 0.35);
+    border-radius: 12px;
+    padding: 14px 8px;
     text-align: center;
     font-size: 12px;
 }
-
 .feat span {
     display: block;
-    font-size: 20px;
-    margin-bottom: 3px;
+    font-size: 22px;
+    margin-bottom: 4px;
 }
 
+/* لیست */
 .row {
     display: flex;
-    gap: 10px;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
+    gap: 12px;
+    padding: 11px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
 }
 .row:last-child { border-bottom: none; }
 
 .icon {
-    width: 36px;
-    height: 36px;
-    background: rgba(120, 0, 0, 0.25);
-    border-radius: 8px;
+    width: 38px;
+    height: 38px;
+    background: rgba(100, 0, 0, 0.3);
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -167,285 +183,155 @@ body {
     flex-shrink: 0;
 }
 
-.row h4 { font-size: 13px; margin-bottom: 2px; }
-.row p { font-size: 11px; color: #777; }
-
-.pro {
-    background: #e01010;
-    color: #fff;
-    font-size: 9px;
-    padding: 1px 5px;
-    border-radius: 10px;
-    margin-left: 4px;
+.row h4 {
+    font-size: 13.5px;
+    margin-bottom: 2px;
+}
+.row p {
+    font-size: 11px;
+    color: #666;
 }
 
+.pro {
+    background: #d40000;
+    color: #fff;
+    font-size: 9px;
+    padding: 2px 6px;
+    border-radius: 10px;
+    margin-right: 4px;
+}
+
+/* تیم */
 .team {
     display: flex;
     justify-content: space-between;
-    padding: 9px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
     font-size: 13px;
 }
 .team:last-child { border-bottom: none; }
-.team span { color: #777; }
-.team a { color: #ff4444; text-decoration: none; font-weight: 600; }
+.team span { color: #666; }
+.team a {
+    color: #ff3333;
+    text-decoration: none;
+    font-weight: 600;
+}
 
+/* دکمه‌ها */
 .btn {
     display: block;
     text-align: center;
-    padding: 13px;
-    border-radius: 12px;
-    font-weight: 600;
+    padding: 14px;
+    border-radius: 14px;
+    font-weight: 700;
     font-size: 14px;
     text-decoration: none;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
-
 .btn1 {
-    background: linear-gradient(90deg, #6b0000, #e01010);
+    background: linear-gradient(90deg, #5a0000, #d40000);
     color: #fff;
+    box-shadow: 0 4px 20px rgba(160, 0, 0, 0.35);
 }
-
 .btn2 {
-    background: rgba(255,255,255,0.04);
+    background: rgba(255,255,255,0.03);
     color: #ccc;
-    border: 1px solid rgba(140, 0, 0, 0.3);
+    border: 1px solid rgba(100, 0, 0, 0.35);
 }
 
+/* بازی */
 .game {
-    background: rgba(14, 14, 14, 0.9);
-    border: 1px solid rgba(140, 0, 0, 0.28);
-    border-radius: 14px;
-    padding: 14px;
+    background: rgba(12, 12, 12, 0.95);
+    border: 1px solid rgba(100, 0, 0, 0.35);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 14px;
+}
+.game h3 {
+    font-size: 15px;
+    color: #ff3a3a;
+    margin-bottom: 4px;
+}
+.game p {
+    font-size: 12px;
+    color: #666;
     margin-bottom: 12px;
 }
 
-.game h3 {
-    font-size: 14px;
-    color: #ff5555;
-    margin-bottom: 4px;
-}
-
-.game p {
-    font-size: 12px;
-    color: #777;
-    margin-bottom: 10px;
-}
-
 #box {
-    height: 80px;
-    border-radius: 10px;
-    background: #0d0d0d;
+    height: 84px;
+    border-radius: 12px;
+    background: #0a0a0a;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 15px;
-    font-weight: 600;
-    border: 2px solid #2a2a2a;
+    font-weight: 700;
+    border: 2px solid #222;
     cursor: pointer;
 }
-#box.ready { border-color: #e01010; }
-#box.go { background: #0a8f3a; color: #fff; border-color: #0a8f3a; }
-#box.fail { background: #a00000; color: #fff; }
+#box.ready { border-color: #d40000; }
+#box.go { background: #0a7a32; color: #fff; border-color: #0a7a32; }
+#box.fail { background: #8a0000; color: #fff; }
 
-#result {
-    margin-top: 8px;
+#result, .game-result {
+    margin-top: 10px;
     text-align: center;
     font-size: 13px;
-    color: #ff5555;
-    min-height: 18px;
+    color: #ff3a3a;
+    min-height: 20px;
+    font-weight: 600;
 }
 
 #count {
-    font-size: 36px;
+    font-size: 40px;
     font-weight: 800;
-    color: #ff3333;
+    color: #ff2a2a;
     text-align: center;
-    margin: 6px 0;
+    margin: 8px 0;
 }
 
 #cbtn {
     display: block;
     margin: 0 auto;
-    background: linear-gradient(90deg, #6b0000, #e01010);
+    background: linear-gradient(90deg, #5a0000, #d40000);
     border: none;
     color: #fff;
-    padding: 11px 36px;
+    padding: 12px 40px;
     border-radius: 30px;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 #timer {
     text-align: center;
     font-size: 12px;
-    color: #777;
-    margin-top: 6px;
+    color: #666;
+    margin-top: 8px;
 }
 
 .memory {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 6px;
+    gap: 7px;
 }
-
 .mcard {
     aspect-ratio: 1;
-    background: rgba(120, 0, 0, 0.18);
-    border-radius: 8px;
+    background: rgba(90, 0, 0, 0.22);
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
-    border: 1px solid rgba(140, 0, 0, 0.3);
+    font-size: 22px;
+    border: 1px solid rgba(120, 0, 0, 0.35);
     cursor: pointer;
 }
 .mcard.on, .mcard.ok {
-    background: rgba(220, 40, 40, 0.25);
-    border-color: #ff3333;
+    background: rgba(200, 30, 30, 0.3);
+    border-color: #ff2a2a;
 }
-.mcard.ok { opacity: 0.5; }
+.mcard.ok { opacity: 0.45; }
 
-.footer {
-    text-align: center;
-    margin-top: 16px;
-    font-size: 11px;
-    color: #444;
-}
-
-/* قیمت */
-.price-box {
-    background: linear-gradient(145deg, rgba(30,8,8,0.95), rgba(12,4,4,0.98));
-    border: 1px solid rgba(200,40,40,0.35);
-    border-radius: 16px;
-    padding: 18px 16px;
-    margin-bottom: 14px;
-    box-shadow: 0 0 25px rgba(120,0,0,0.15);
-}
-
-.price-title {
-    text-align: center;
-    font-size: 15px;
-    font-weight: 700;
-    color: #ff4444;
-    margin-bottom: 14px;
-}
-
-.days-display {
-    text-align: center;
-    font-size: 42px;
-    font-weight: 800;
-    color: #fff;
-    margin: 8px 0 4px;
-}
-
-.days-label {
-    text-align: center;
-    font-size: 13px;
-    color: #888;
-    margin-bottom: 16px;
-}
-
-.slider-wrap { padding: 0 6px; margin-bottom: 16px; }
-
-input[type=range] {
-    width: 100%;
-    height: 8px;
-    -webkit-appearance: none;
-    background: #222;
-    border-radius: 10px;
-    outline: none;
-}
-input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 22px;
-    height: 22px;
-    background: linear-gradient(135deg, #e01010, #a00000);
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 0 10px rgba(220,40,40,0.5);
-}
-
-.quick-days {
-    display: flex;
-    gap: 6px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 18px;
-}
-.quick-days button {
-    background: rgba(120,0,0,0.25);
-    border: 1px solid rgba(200,40,40,0.3);
-    color: #ccc;
-    padding: 7px 12px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-}
-.quick-days button.active {
-    background: linear-gradient(90deg, #6b0000, #e01010);
-    border-color: transparent;
-    color: #fff;
-}
-
-.price-result {
-    background: rgba(0,0,0,0.45);
-    border-radius: 12px;
-    padding: 14px;
-    text-align: center;
-}
-.price-result .label { font-size: 12px; color: #888; margin-bottom: 4px; }
-.price-result .amount { font-size: 28px; font-weight: 800; color: #ff3333; }
-.price-result .unit { font-size: 13px; color: #888; }
-
-.unlimited-card {
-    background: linear-gradient(135deg, rgba(140,0,0,0.28), rgba(50,0,0,0.35));
-    border: 1px solid rgba(220,60,60,0.4);
-    border-radius: 14px;
-    padding: 16px;
-    text-align: center;
-    margin-bottom: 14px;
-    position: relative;
-    overflow: hidden;
-}
-.unlimited-card::before {
-    content: "👑";
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    font-size: 60px;
-    opacity: 0.08;
-}
-.unlimited-title { font-size: 15px; font-weight: 700; color: #ffcc00; margin-bottom: 6px; }
-.unlimited-price { font-size: 26px; font-weight: 800; color: #fff; margin-bottom: 4px; }
-.unlimited-desc { font-size: 12px; color: #aaa; }
-
-.buy-box {
-    background: rgba(14,14,14,0.95);
-    border: 1px solid rgba(140,0,0,0.3);
-    border-radius: 14px;
-    padding: 16px;
-    text-align: center;
-}
-.buy-box p {
-    font-size: 13px;
-    color: #bbb;
-    margin-bottom: 12px;
-    line-height: 1.6;
-}
-.buy-box a {
-    display: inline-block;
-    background: linear-gradient(90deg, #6b0000, #e01010);
-    color: #fff;
-    padding: 12px 28px;
-    border-radius: 30px;
-    font-weight: 700;
-    font-size: 14px;
-    text-decoration: none;
-    box-shadow: 0 4px 15px rgba(140,0,0,0.4);
-}
-
-/* بازی‌های جدید */
 .game-btns {
     display: flex;
     gap: 8px;
@@ -454,41 +340,188 @@ input[type=range]::-webkit-slider-thumb {
     margin: 10px 0;
 }
 .game-btns button {
-    background: rgba(120,0,0,0.25);
-    border: 1px solid rgba(200,40,40,0.35);
+    background: rgba(90, 0, 0, 0.3);
+    border: 1px solid rgba(140, 0, 0, 0.4);
     color: #eee;
-    padding: 10px 16px;
+    padding: 11px 16px;
     border-radius: 12px;
     font-size: 14px;
-    font-weight: 600;
-    min-width: 70px;
-}
-.game-btns button:active {
-    background: linear-gradient(90deg, #6b0000, #e01010);
-}
-
-.game-result {
-    text-align: center;
-    font-size: 14px;
-    color: #ff5555;
-    min-height: 22px;
-    margin-top: 8px;
     font-weight: 600;
 }
 
 .guess-input {
     width: 100%;
-    background: #111;
-    border: 1px solid #333;
+    background: #0a0a0a;
+    border: 1px solid #222;
     color: #fff;
-    padding: 12px;
-    border-radius: 10px;
+    padding: 13px;
+    border-radius: 12px;
     font-size: 16px;
     text-align: center;
     margin-bottom: 10px;
     outline: none;
 }
-.guess-input:focus { border-color: #e01010; }
+.guess-input:focus {
+    border-color: #d40000;
+}
+
+/* قیمت */
+.price-box {
+    background: linear-gradient(160deg, rgba(25, 5, 5, 0.98), rgba(10, 2, 2, 0.99));
+    border: 1px solid rgba(160, 20, 20, 0.4);
+    border-radius: 18px;
+    padding: 20px 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 0 30px rgba(100, 0, 0, 0.2);
+}
+.price-title {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    color: #ff3a3a;
+    margin-bottom: 16px;
+}
+.days-display {
+    text-align: center;
+    font-size: 48px;
+    font-weight: 800;
+    color: #fff;
+}
+.days-label {
+    text-align: center;
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 18px;
+}
+.slider-wrap {
+    padding: 0 8px;
+    margin-bottom: 18px;
+}
+input[type=range] {
+    width: 100%;
+    height: 8px;
+    -webkit-appearance: none;
+    background: #1a1a1a;
+    border-radius: 10px;
+    outline: none;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, #d40000, #8a0000);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 12px rgba(200, 30, 30, 0.6);
+}
+.quick-days {
+    display: flex;
+    gap: 7px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+}
+.quick-days button {
+    background: rgba(90, 0, 0, 0.3);
+    border: 1px solid rgba(140, 0, 0, 0.4);
+    color: #ccc;
+    padding: 8px 13px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+.quick-days button.active {
+    background: linear-gradient(90deg, #5a0000, #d40000);
+    border-color: transparent;
+    color: #fff;
+}
+.price-result {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 14px;
+    padding: 16px;
+    text-align: center;
+}
+.price-result .label {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 4px;
+}
+.price-result .amount {
+    font-size: 30px;
+    font-weight: 800;
+    color: #ff2a2a;
+}
+.price-result .unit {
+    font-size: 13px;
+    color: #777;
+}
+
+.unlimited-card {
+    background: linear-gradient(135deg, rgba(120, 0, 0, 0.3), rgba(40, 0, 0, 0.4));
+    border: 1px solid rgba(180, 40, 40, 0.45);
+    border-radius: 16px;
+    padding: 18px;
+    text-align: center;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+}
+.unlimited-card::before {
+    content: "👑";
+    position: absolute;
+    top: -12px;
+    left: -12px;
+    font-size: 70px;
+    opacity: 0.07;
+}
+.unlimited-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffcc00;
+    margin-bottom: 6px;
+}
+.unlimited-price {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 4px;
+}
+.unlimited-desc {
+    font-size: 12px;
+    color: #999;
+}
+
+.buy-box {
+    background: rgba(12, 12, 12, 0.95);
+    border: 1px solid rgba(100, 0, 0, 0.35);
+    border-radius: 16px;
+    padding: 18px;
+    text-align: center;
+}
+.buy-box p {
+    font-size: 13px;
+    color: #aaa;
+    margin-bottom: 14px;
+    line-height: 1.6;
+}
+.buy-box a {
+    display: inline-block;
+    background: linear-gradient(90deg, #5a0000, #d40000);
+    color: #fff;
+    padding: 13px 32px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    box-shadow: 0 4px 18px rgba(140, 0, 0, 0.45);
+}
+
+.footer {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 11px;
+    color: #333;
+}
 </style>
 </head>
 <body>
@@ -551,7 +584,6 @@ input[type=range]::-webkit-slider-thumb {
             <div class="title">قابلیت‌های اصلی</div>
             <div class="subtitle">مدیریت کامل گروه</div>
         </div>
-
         <div class="card">
             <div class="row"><div class="icon">1</div><div><h4>پنل ادمین و هویت</h4><p>مدیریت ادمین‌ها</p></div></div>
             <div class="row"><div class="icon">2</div><div><h4>مدیریت گروه</h4><p>کنترل تنظیمات</p></div></div>
@@ -578,7 +610,6 @@ input[type=range]::-webkit-slider-thumb {
             <div class="title">۲۲ سلاح پرو</div>
             <div class="subtitle">PRO UNLOCK</div>
         </div>
-
         <div class="card">
             <div class="row"><div class="icon">👑</div><div><h4>محافظ ادمین <span class="pro">PRO</span></h4><p>محافظت ویژه</p></div></div>
             <div class="row"><div class="icon">⚖️</div><div><h4>دادگاه گروهی <span class="pro">PRO</span></h4><p>سیستم قضاوت</p></div></div>
@@ -600,7 +631,7 @@ input[type=range]::-webkit-slider-thumb {
         <div class="footer">صفحه ۳ از ۵</div>
     </div>
 
-    <!-- صفحه ۴ - بازی‌ها -->
+    <!-- صفحه ۴ - بازی -->
     <div class="page" id="p4">
         <div class="header">
             <div class="logo">🎮</div>
@@ -608,7 +639,6 @@ input[type=range]::-webkit-slider-thumb {
             <div class="subtitle">۶ بازی خفن</div>
         </div>
 
-        <!-- ۱. چالش سرعت -->
         <div class="game">
             <h3>⚡ چالش سرعت</h3>
             <p>وقتی سبز شد سریع ضربه بزن</p>
@@ -616,7 +646,6 @@ input[type=range]::-webkit-slider-thumb {
             <div id="result"></div>
         </div>
 
-        <!-- ۲. کلیکر -->
         <div class="game">
             <h3>🔥 کلیکر ۱۰ ثانیه</h3>
             <p>هرچقدر می‌تونی کلیک کن</p>
@@ -625,7 +654,6 @@ input[type=range]::-webkit-slider-thumb {
             <div id="timer">۱۰ ثانیه وقت داری</div>
         </div>
 
-        <!-- ۳. حافظه -->
         <div class="game">
             <h3>🧠 حافظه</h3>
             <p>کارت‌های مشابه رو پیدا کن</p>
@@ -633,7 +661,6 @@ input[type=range]::-webkit-slider-thumb {
             <div id="mres" class="game-result"></div>
         </div>
 
-        <!-- ۴. حدس عدد -->
         <div class="game">
             <h3>🎯 حدس عدد</h3>
             <p>عددی بین ۱ تا ۱۰۰ حدس بزن</p>
@@ -645,7 +672,6 @@ input[type=range]::-webkit-slider-thumb {
             <div id="guessResult" class="game-result"></div>
         </div>
 
-        <!-- ۵. سنگ کاغذ قیچی -->
         <div class="game">
             <h3>✊ سنگ کاغذ قیچی</h3>
             <p>انتخاب کن و با ربات مسابقه بده</p>
@@ -657,7 +683,6 @@ input[type=range]::-webkit-slider-thumb {
             <div id="rpsResult" class="game-result"></div>
         </div>
 
-        <!-- ۶. تاس شانس -->
         <div class="game">
             <h3>🎲 تاس شانس</h3>
             <p>تاس بنداز و شانس بیار</p>
@@ -682,11 +707,9 @@ input[type=range]::-webkit-slider-thumb {
             <div class="price-title">📅 انتخاب مدت اشتراک</div>
             <div class="days-display" id="daysNum">7</div>
             <div class="days-label">روز</div>
-
             <div class="slider-wrap">
                 <input type="range" id="daysSlider" min="1" max="30" value="7" oninput="updatePrice()">
             </div>
-
             <div class="quick-days">
                 <button onclick="setDays(1)">۱ روز</button>
                 <button onclick="setDays(3)">۳ روز</button>
@@ -694,9 +717,8 @@ input[type=range]::-webkit-slider-thumb {
                 <button onclick="setDays(15)">۱۵ روز</button>
                 <button onclick="setDays(30)">۳۰ روز</button>
             </div>
-
             <div class="price-result">
                 <div class="label">مبلغ قابل پرداخت</div>
                 <div class="amount" id="priceAmount">۲۸,۰۰۰</div>
                 <div class="unit">تومان</div>
-   
+            </
