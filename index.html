@@ -86,7 +86,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 <div class="bg"></div>
 <div class="container">
 
-<!-- صفحه ۱ -->
 <div class="page show" id="p1">
 <div class="header">
 <div class="logo">⚡</div>
@@ -113,7 +112,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 <div class="footer">صفحه ۱ از ۵</div>
 </div>
 
-<!-- صفحه ۲ -->
 <div class="page" id="p2">
 <div class="header"><div class="logo">🛠</div><div class="title">قابلیت‌های اصلی</div><div class="subtitle">مدیریت کامل گروه</div></div>
 <div class="card">
@@ -135,7 +133,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 <div class="footer">صفحه ۲ از ۵</div>
 </div>
 
-<!-- صفحه ۳ -->
 <div class="page" id="p3">
 <div class="header"><div class="logo">👑</div><div class="title">۲۲ سلاح پرو</div><div class="subtitle">PRO UNLOCK</div></div>
 <div class="card">
@@ -159,7 +156,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 <div class="footer">صفحه ۳ از ۵</div>
 </div>
 
-<!-- صفحه ۴ -->
 <div class="page" id="p4">
 <div class="header"><div class="logo">🎮</div><div class="title">مینی‌گیم‌ها</div><div class="subtitle">سه بازی خفن</div></div>
 <div class="game">
@@ -184,7 +180,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 <div class="footer">صفحه ۴ از ۵</div>
 </div>
 
-<!-- صفحه ۵ -->
 <div class="page" id="p5">
 <div class="header"><div class="logo">💎</div><div class="title">اشتراک پرو</div><div class="subtitle">قیمت‌گذاری هوشمند</div></div>
 <div class="price-box">
@@ -219,7 +214,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 
 </div>
 
-<!-- ناوبری -->
 <div class="nav">
 <button id="b1" class="active" data-page="1"><span>🏠</span>خانه</button>
 <button id="b2" data-page="2"><span>🛠</span>اصلی</button>
@@ -229,136 +223,155 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 </div>
 
 <script>
-(function() {
-    // ========== ناوبری ==========
-    function showPage(n) {
-        for (let i = 1; i <= 5; i++) {
-            const page = document.getElementById('p' + i);
-            const btn = document.getElementById('b' + i);
-            if (page) page.classList.remove('show');
-            if (btn) btn.classList.remove('active');
-        }
-        const targetPage = document.getElementById('p' + n);
-        const targetBtn = document.getElementById('b' + n);
-        if (targetPage) targetPage.classList.add('show');
-        if (targetBtn) targetBtn.classList.add('active');
-        window.scrollTo(0, 0);
-        if (n === 4) setTimeout(initMemory, 100);
-    }
+(function(){
+function showPage(n){
+for(let i=1;i<=5;i++){
+let p=document.getElementById('p'+i);
+let b=document.getElementById('b'+i);
+if(p)p.classList.remove('show');
+if(b)b.classList.remove('active');
+}
+let tp=document.getElementById('p'+n);
+let tb=document.getElementById('b'+n);
+if(tp)tp.classList.add('show');
+if(tb)tb.classList.add('active');
+window.scrollTo(0,0);
+if(n===4)setTimeout(initMemory,80);
+}
+document.querySelectorAll('.nav button').forEach(btn=>{
+btn.addEventListener('click',function(){
+showPage(parseInt(this.getAttribute('data-page')));
+});
+});
 
-    // وصل کردن دکمه‌های پایین
-    document.querySelectorAll('.nav button').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const pageNum = parseInt(this.getAttribute('data-page'));
-            showPage(pageNum);
-        });
-    });
+const PRICE=4000;
+const slider=document.getElementById('daysSlider');
+const daysNum=document.getElementById('daysNum');
+const priceAmount=document.getElementById('priceAmount');
+function formatNum(n){return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,"،");}
+function updatePrice(){
+let days=parseInt(slider.value)||7;
+daysNum.textContent=days;
+priceAmount.textContent=formatNum(days*PRICE);
+document.querySelectorAll('.quick-days button').forEach(b=>{
+b.classList.toggle('active',parseInt(b.getAttribute('data-days'))===days);
+});
+}
+slider.addEventListener('input',updatePrice);
+document.querySelectorAll('.quick-days button').forEach(btn=>{
+btn.addEventListener('click',function(){
+slider.value=this.getAttribute('data-days');
+updatePrice();
+});
+});
+updatePrice();
 
-    // ========== قیمت ==========
-    const PRICE = 4000;
-    const slider = document.getElementById('daysSlider');
-    const daysNum = document.getElementById('daysNum');
-    const priceAmount = document.getElementById('priceAmount');
+let rState='ready',rStart=0,rTimer=null;
+const box=document.getElementById('box');
+const result=document.getElementById('result');
+box.addEventListener('click',function(){
+if(rState==='ready'){
+rState='waiting';
+box.className='';
+box.style.background='#111';
+box.style.borderColor='#555';
+box.textContent='صبر کن...';
+result.textContent='';
+rTimer=setTimeout(()=>{
+rState='go';
+box.className='go';
+box.textContent='الان بزن!';
+rStart=performance.now();
+},1400+Math.random()*2600);
+}else if(rState==='waiting'){
+clearTimeout(rTimer);
+rState='ready';
+box.className='fail';
+box.textContent='خیلی زود زدی!';
+result.textContent='دوباره امتحان کن';
+setTimeout(()=>{
+box.className='ready';
+box.textContent='برای شروع ضربه بزن';
+result.textContent='';
+},1400);
+}else if(rState==='go'){
+let t=Math.round(performance.now()-rStart);
+rState='ready';
+box.className='ready';
+box.textContent='برای شروع ضربه بزن';
+result.textContent=t+' میلی‌ثانیه';
+}
+});
 
-    function formatNum(n) {
-        return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "،");
-    }
+let cCount=0,cActive=false,cTimer=null;
+const cbtn=document.getElementById('cbtn');
+const countEl=document.getElementById('count');
+const timerEl=document.getElementById('timer');
+cbtn.addEventListener('click',function(){
+if(!cActive){
+cActive=true;
+cCount=0;
+countEl.textContent='0';
+cbtn.textContent='کلیک کن!';
+let left=10;
+timerEl.textContent=left+' ثانیه باقی مانده';
+cTimer=setInterval(()=>{
+left--;
+timerEl.textContent=left+' ثانیه باقی مانده';
+if(left<=0){
+clearInterval(cTimer);
+cActive=false;
+cbtn.textContent='شروع مجدد';
+timerEl.textContent='تموم شد! امتیاز: '+cCount;
+}
+},1000);
+}else{
+cCount++;
+countEl.textContent=cCount;
+}
+});
 
-    function updatePrice() {
-        const days = parseInt(slider.value) || 7;
-        daysNum.textContent = days;
-        priceAmount.textContent = formatNum(days * PRICE);
-        document.querySelectorAll('.quick-days button').forEach(b => {
-            b.classList.toggle('active', parseInt(b.getAttribute('data-days')) === days);
-        });
-    }
-
-    slider.addEventListener('input', updatePrice);
-
-    document.querySelectorAll('.quick-days button').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const d = parseInt(this.getAttribute('data-days'));
-            slider.value = d;
-            updatePrice();
-        });
-    });
-
-    updatePrice();
-
-    // ========== بازی واکنش ==========
-    let rState = 'ready';
-    let rStart = 0;
-    let rTimer = null;
-    const box = document.getElementById('box');
-    const result = document.getElementById('result');
-
-    box.addEventListener('click', function() {
-        if (rState === 'ready') {
-            rState = 'waiting';
-            box.className = '';
-            box.style.background = '#111';
-            box.style.borderColor = '#555';
-            box.textContent = 'صبر کن...';
-            result.textContent = '';
-            const delay = 1400 + Math.random() * 2600;
-            rTimer = setTimeout(() => {
-                rState = 'go';
-                box.className = 'go';
-                box.textContent = 'الان بزن!';
-                rStart = performance.now();
-            }, delay);
-        } else if (rState === 'waiting') {
-            clearTimeout(rTimer);
-            rState = 'ready';
-            box.className = 'fail';
-            box.textContent = 'خیلی زود زدی!';
-            result.textContent = 'دوباره امتحان کن';
-            setTimeout(() => {
-                box.className = 'ready';
-                box.textContent = 'برای شروع ضربه بزن';
-                result.textContent = '';
-            }, 1400);
-        } else if (rState === 'go') {
-            const t = Math.round(performance.now() - rStart);
-            rState = 'ready';
-            box.className = 'ready';
-            box.textContent = 'برای شروع ضربه بزن';
-            result.textContent = t + ' میلی‌ثانیه';
-        }
-    });
-
-    // ========== کلیکر ==========
-    let cCount = 0;
-    let cActive = false;
-    let cTimer = null;
-    const cbtn = document.getElementById('cbtn');
-    const countEl = document.getElementById('count');
-    const timerEl = document.getElementById('timer');
-
-    cbtn.addEventListener('click', function() {
-        if (!cActive) {
-            cActive = true;
-            cCount = 0;
-            countEl.textContent = '0';
-            cbtn.textContent = 'کلیک کن!';
-            let left = 10;
-            timerEl.textContent = left + ' ثانیه باقی مانده';
-            cTimer = setInterval(() => {
-                left--;
-                timerEl.textContent = left + ' ثانیه باقی مانده';
-                if (left <= 0) {
-                    clearInterval(cTimer);
-                    cActive = false;
-                    cbtn.textContent = 'شروع مجدد';
-                    timerEl.textContent = 'تموم شد! امتیاز: ' + cCount;
-                }
-            }, 1000);
-        } else {
-            cCount++;
-            countEl.textContent = cCount;
-        }
-    });
-
-    // ========== حافظه ==========
-    const emojis = ['🔥','⚡','👑','💎','🎮','🛡','🤖','💀'];
-    let fli
+const emojis=['🔥','⚡','👑','💎','🎮','🛡','🤖','💀'];
+let flipped=[],matched=0,lock=false;
+function initMemory(){
+const board=document.getElementById('memory');
+const res=document.getElementById('mres');
+if(!board)return;
+board.innerHTML='';
+res.textContent='';
+matched=0;flipped=[];lock=false;
+let cards=[...emojis,...emojis].sort(()=>Math.random()-0.5);
+cards.forEach(emoji=>{
+let card=document.createElement('div');
+card.className='mcard';
+card.dataset.emoji=emoji;
+card.addEventListener('click',function(){
+if(lock||this.classList.contains('on')||this.classList.contains('ok'))return;
+this.classList.add('on');
+this.textContent=this.dataset.emoji;
+flipped.push(this);
+if(flipped.length===2){
+lock=true;
+let [a,b]=flipped;
+if(a.dataset.emoji===b.dataset.emoji){
+setTimeout(()=>{
+a.classList.add('ok');b.classList.add('ok');
+flipped=[];lock=false;matched++;
+if(matched===8)res.textContent='آفرین! همه کارت‌ها رو پیدا کردی 🎉';
+},380);
+}else{
+setTimeout(()=>{
+a.classList.remove('on');b.classList.remove('on');
+a.textContent='';b.textContent='';
+flipped=[];lock=false;
+},650);
+}
+}
+});
+board.appendChild(card);
+});
+}
+})();
+</script>
+</body>
+</html>
