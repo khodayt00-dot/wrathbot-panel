@@ -38,7 +38,6 @@ body {
     padding: 16px 14px 100px;
 }
 
-/* ناوبری */
 .nav {
     position: fixed;
     bottom: 0;
@@ -75,7 +74,6 @@ body {
     font-size: 20px;
 }
 
-/* صفحات */
 .page {
     display: none;
     animation: fadeIn 0.25s ease;
@@ -88,7 +86,6 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* هدر */
 .header {
     text-align: center;
     margin-bottom: 22px;
@@ -113,7 +110,6 @@ body {
     font-size: 26px;
     font-weight: 800;
     color: #fff;
-    letter-spacing: -0.5px;
 }
 
 .subtitle {
@@ -122,7 +118,6 @@ body {
     margin-top: 4px;
 }
 
-/* کارت */
 .card {
     background: rgba(12, 12, 12, 0.95);
     border: 1px solid rgba(100, 0, 0, 0.35);
@@ -140,7 +135,6 @@ body {
     color: #ff3333;
 }
 
-/* گرید */
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -162,7 +156,6 @@ body {
     margin-bottom: 4px;
 }
 
-/* لیست */
 .row {
     display: flex;
     gap: 12px;
@@ -201,7 +194,6 @@ body {
     margin-right: 4px;
 }
 
-/* تیم */
 .team {
     display: flex;
     justify-content: space-between;
@@ -217,7 +209,6 @@ body {
     font-weight: 600;
 }
 
-/* دکمه‌ها */
 .btn {
     display: block;
     text-align: center;
@@ -239,7 +230,6 @@ body {
     border: 1px solid rgba(100, 0, 0, 0.35);
 }
 
-/* بازی */
 .game {
     background: rgba(12, 12, 12, 0.95);
     border: 1px solid rgba(100, 0, 0, 0.35);
@@ -270,7 +260,6 @@ body {
     border: 2px solid #222;
     cursor: pointer;
     user-select: none;
-    -webkit-user-select: none;
 }
 #box.ready { border-color: #d40000; }
 #box.go { background: #0a7a32; color: #fff; border-color: #0a7a32; }
@@ -367,14 +356,12 @@ body {
     border-color: #d40000;
 }
 
-/* قیمت */
 .price-box {
     background: linear-gradient(160deg, rgba(25, 5, 5, 0.98), rgba(10, 2, 2, 0.99));
     border: 1px solid rgba(160, 20, 20, 0.4);
     border-radius: 18px;
     padding: 20px 16px;
     margin-bottom: 16px;
-    box-shadow: 0 0 30px rgba(100, 0, 0, 0.2);
 }
 .price-title {
     text-align: center;
@@ -532,7 +519,6 @@ input[type=range]::-webkit-slider-thumb {
 
 <div class="container">
 
-    <!-- صفحه ۱ -->
     <div class="page show" id="p1">
         <div class="header">
             <div class="logo">⚡</div>
@@ -579,7 +565,6 @@ input[type=range]::-webkit-slider-thumb {
         <div class="footer">صفحه ۱ از ۵</div>
     </div>
 
-    <!-- صفحه ۲ -->
     <div class="page" id="p2">
         <div class="header">
             <div class="logo">🛠</div>
@@ -605,7 +590,6 @@ input[type=range]::-webkit-slider-thumb {
         <div class="footer">صفحه ۲ از ۵</div>
     </div>
 
-    <!-- صفحه ۳ -->
     <div class="page" id="p3">
         <div class="header">
             <div class="logo">👑</div>
@@ -633,7 +617,6 @@ input[type=range]::-webkit-slider-thumb {
         <div class="footer">صفحه ۳ از ۵</div>
     </div>
 
-    <!-- صفحه ۴ - بازی -->
     <div class="page" id="p4">
         <div class="header">
             <div class="logo">🎮</div>
@@ -644,11 +627,7 @@ input[type=range]::-webkit-slider-thumb {
         <div class="game">
             <h3>⚡ چالش سرعت</h3>
             <p>وقتی سبز شد سریع ضربه بزن</p>
-            <div id="box" class="ready" 
-                 onclick="doReaction()" 
-                 ontouchstart="doReaction(); event.preventDefault();">
-                برای شروع ضربه بزن
-            </div>
+            <div id="box" class="ready" onclick="doReaction()" ontouchstart="doReaction(); event.preventDefault();">برای شروع ضربه بزن</div>
             <div id="result"></div>
         </div>
 
@@ -701,7 +680,6 @@ input[type=range]::-webkit-slider-thumb {
         <div class="footer">صفحه ۴ از ۵</div>
     </div>
 
-    <!-- صفحه ۵ - قیمت -->
     <div class="page" id="p5">
         <div class="header">
             <div class="logo">💎</div>
@@ -724,4 +702,13 @@ input[type=range]::-webkit-slider-thumb {
                 <button onclick="setDays(30)">۳۰ روز</button>
             </div>
             <div class="price-result">
-           
+                <div class="label">مبلغ قابل پرداخت</div>
+                <div class="amount" id="priceAmount">۲۸,۰۰۰</div>
+                <div class="unit">تومان</div>
+            </div>
+        </div>
+
+        <div class="unlimited-card">
+            <div class="unlimited-title">👑 اشتراک نامحدود</div>
+            <div class="unlimited-price">۲۵۰,۰۰۰ تومان</div>
+            <div class="unlimited-desc">یک‌
