@@ -16,8 +16,8 @@
 }
 
 body {
-    background: #030303;
-    color: #eee;
+    background: #0a0a0a;
+    color: #f0f0f0;
     min-height: 100vh;
     overflow-x: hidden;
 }
@@ -26,16 +26,17 @@ body {
     position: fixed;
     inset: 0;
     background: 
-        radial-gradient(ellipse at 20% 10%, rgba(80, 0, 0, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 90%, rgba(50, 0, 0, 0.12) 0%, transparent 50%),
-        #030303;
+        radial-gradient(ellipse at 20% 20%, rgba(180, 0, 0, 0.25) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(120, 0, 0, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(30, 0, 0, 0.4) 0%, transparent 70%),
+        #0a0a0a;
     z-index: -1;
 }
 
 .container {
     max-width: 430px;
     margin: 0 auto;
-    padding: 16px 14px 100px;
+    padding: 16px 14px 95px;
 }
 
 .nav {
@@ -43,132 +44,131 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(5, 5, 5, 0.98);
-    border-top: 1px solid rgba(120, 0, 0, 0.4);
+    background: rgba(10, 10, 10, 0.95);
+    border-top: 1px solid rgba(180, 0, 0, 0.3);
     display: flex;
     justify-content: space-around;
-    padding: 10px 4px 16px;
+    padding: 10px 5px 14px;
     z-index: 1000;
 }
 
 .nav button {
     background: none;
     border: none;
-    color: #444;
+    color: #666;
     font-size: 11px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 3px;
     padding: 6px 8px;
-    border-radius: 12px;
-    transition: 0.2s;
+    border-radius: 10px;
 }
 
 .nav button.active {
-    color: #ff2a2a;
-    background: rgba(120, 0, 0, 0.25);
+    color: #ff3333;
+    background: rgba(180, 0, 0, 0.15);
 }
 
 .nav button span {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .page {
     display: none;
-    animation: fadeIn 0.25s ease;
 }
 .page.show {
     display: block;
 }
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
-}
 
 .header {
     text-align: center;
-    margin-bottom: 22px;
-    padding-top: 10px;
+    margin-bottom: 20px;
+    padding-top: 8px;
 }
 
 .logo {
-    width: 84px;
-    height: 84px;
-    margin: 0 auto 12px;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 10px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #5a0000, #d40000);
+    background: linear-gradient(135deg, #8b0000, #ff2222);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 36px;
-    box-shadow: 0 0 40px rgba(160, 0, 0, 0.5);
-    border: 2px solid rgba(255,255,255,0.07);
+    font-size: 34px;
+    box-shadow: 0 0 30px rgba(180, 0, 0, 0.5);
+    border: 2px solid rgba(255,255,255,0.1);
 }
 
 .title {
-    font-size: 26px;
+    font-size: 24px;
     font-weight: 800;
     color: #fff;
 }
 
 .subtitle {
-    color: #666;
+    color: #999;
     font-size: 12px;
-    margin-top: 4px;
+    margin-top: 3px;
 }
 
 .card {
-    background: rgba(12, 12, 12, 0.95);
-    border: 1px solid rgba(100, 0, 0, 0.35);
-    border-radius: 16px;
-    padding: 16px;
-    margin-bottom: 14px;
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(180, 0, 0, 0.25);
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 12px;
 }
 
 .intro {
     font-size: 13.5px;
-    line-height: 1.75;
-    color: #bbb;
+    line-height: 1.7;
+    color: #ddd;
 }
+
 .intro b {
-    color: #ff3333;
+    color: #ff4444;
 }
 
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin: 14px 0;
+    gap: 8px;
+    margin: 12px 0;
 }
 
 .feat {
-    background: rgba(90, 0, 0, 0.2);
-    border: 1px solid rgba(120, 0, 0, 0.35);
-    border-radius: 12px;
-    padding: 14px 8px;
+    background: rgba(180, 0, 0, 0.12);
+    border: 1px solid rgba(180, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 12px 6px;
     text-align: center;
     font-size: 12px;
 }
+
 .feat span {
     display: block;
-    font-size: 22px;
-    margin-bottom: 4px;
+    font-size: 20px;
+    margin-bottom: 3px;
 }
 
 .row {
     display: flex;
-    gap: 12px;
-    padding: 11px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.03);
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
-.row:last-child { border-bottom: none; }
+
+.row:last-child {
+    border-bottom: none;
+}
 
 .icon {
-    width: 38px;
-    height: 38px;
-    background: rgba(100, 0, 0, 0.3);
-    border-radius: 10px;
+    width: 36px;
+    height: 36px;
+    background: rgba(180, 0, 0, 0.2);
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -177,34 +177,42 @@ body {
 }
 
 .row h4 {
-    font-size: 13.5px;
+    font-size: 13px;
     margin-bottom: 2px;
 }
+
 .row p {
     font-size: 11px;
-    color: #666;
+    color: #888;
 }
 
 .pro {
-    background: #d40000;
+    background: #ff2222;
     color: #fff;
     font-size: 9px;
-    padding: 2px 6px;
+    padding: 1px 5px;
     border-radius: 10px;
-    margin-right: 4px;
+    margin-left: 4px;
 }
 
 .team {
     display: flex;
     justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.03);
+    padding: 9px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
     font-size: 13px;
 }
-.team:last-child { border-bottom: none; }
-.team span { color: #666; }
+
+.team:last-child {
+    border-bottom: none;
+}
+
+.team span {
+    color: #888;
+}
+
 .team a {
-    color: #ff3333;
+    color: #ff4444;
     text-decoration: none;
     font-weight: 600;
 }
@@ -212,304 +220,301 @@ body {
 .btn {
     display: block;
     text-align: center;
-    padding: 14px;
-    border-radius: 14px;
-    font-weight: 700;
+    padding: 13px;
+    border-radius: 12px;
+    font-weight: 600;
     font-size: 14px;
     text-decoration: none;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
+
 .btn1 {
-    background: linear-gradient(90deg, #5a0000, #d40000);
+    background: linear-gradient(90deg, #8b0000, #ff2222);
     color: #fff;
-    box-shadow: 0 4px 20px rgba(160, 0, 0, 0.35);
 }
+
 .btn2 {
-    background: rgba(255,255,255,0.03);
-    color: #ccc;
-    border: 1px solid rgba(100, 0, 0, 0.35);
+    background: rgba(255,255,255,0.05);
+    color: #ddd;
+    border: 1px solid rgba(180, 0, 0, 0.3);
 }
 
 .game {
-    background: rgba(12, 12, 12, 0.95);
-    border: 1px solid rgba(100, 0, 0, 0.35);
-    border-radius: 16px;
-    padding: 16px;
-    margin-bottom: 14px;
-}
-.game h3 {
-    font-size: 15px;
-    color: #ff3a3a;
-    margin-bottom: 4px;
-}
-.game p {
-    font-size: 12px;
-    color: #666;
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(180, 0, 0, 0.25);
+    border-radius: 14px;
+    padding: 14px;
     margin-bottom: 12px;
 }
 
+.game h3 {
+    font-size: 14px;
+    color: #ff6666;
+    margin-bottom: 4px;
+}
+
+.game p {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 10px;
+}
+
 #box {
-    height: 84px;
-    border-radius: 12px;
-    background: #0a0a0a;
+    height: 80px;
+    border-radius: 10px;
+    background: #111;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 15px;
-    font-weight: 700;
-    border: 2px solid #222;
+    font-weight: 600;
+    border: 2px solid #333;
     cursor: pointer;
-    user-select: none;
 }
-#box.ready { border-color: #d40000; }
-#box.go { background: #0a7a32; color: #fff; border-color: #0a7a32; }
-#box.fail { background: #8a0000; color: #fff; }
 
-#result, .game-result {
-    margin-top: 10px;
+#box.ready { border-color: #ff2222; }
+#box.go { background: #00aa44; color: #fff; border-color: #00aa44; }
+#box.fail { background: #cc0000; color: #fff; }
+
+#result {
+    margin-top: 8px;
     text-align: center;
     font-size: 13px;
-    color: #ff3a3a;
-    min-height: 20px;
-    font-weight: 600;
+    color: #ff6666;
+    min-height: 18px;
 }
 
 #count {
-    font-size: 40px;
+    font-size: 36px;
     font-weight: 800;
-    color: #ff2a2a;
+    color: #ff4444;
     text-align: center;
-    margin: 8px 0;
+    margin: 6px 0;
 }
 
 #cbtn {
     display: block;
     margin: 0 auto;
-    background: linear-gradient(90deg, #5a0000, #d40000);
+    background: linear-gradient(90deg, #8b0000, #ff2222);
     border: none;
     color: #fff;
-    padding: 12px 40px;
+    padding: 11px 36px;
     border-radius: 30px;
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 #timer {
     text-align: center;
     font-size: 12px;
-    color: #666;
-    margin-top: 8px;
+    color: #888;
+    margin-top: 6px;
 }
 
 .memory {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 7px;
+    gap: 6px;
 }
+
 .mcard {
     aspect-ratio: 1;
-    background: rgba(90, 0, 0, 0.22);
-    border-radius: 10px;
+    background: rgba(180, 0, 0, 0.15);
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 22px;
-    border: 1px solid rgba(120, 0, 0, 0.35);
+    font-size: 20px;
+    border: 1px solid rgba(180, 0, 0, 0.3);
     cursor: pointer;
 }
+
 .mcard.on, .mcard.ok {
-    background: rgba(200, 30, 30, 0.3);
-    border-color: #ff2a2a;
-}
-.mcard.ok { opacity: 0.45; }
-
-.game-btns {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin: 10px 0;
-}
-.game-btns button {
-    background: rgba(90, 0, 0, 0.3);
-    border: 1px solid rgba(140, 0, 0, 0.4);
-    color: #eee;
-    padding: 11px 16px;
-    border-radius: 12px;
-    font-size: 14px;
-    font-weight: 600;
+    background: rgba(255, 50, 50, 0.25);
+    border-color: #ff4444;
 }
 
-.guess-input {
-    width: 100%;
-    background: #0a0a0a;
-    border: 1px solid #222;
-    color: #fff;
-    padding: 13px;
-    border-radius: 12px;
-    font-size: 16px;
+.mcard.ok {
+    opacity: 0.5;
+}
+
+.footer {
     text-align: center;
-    margin-bottom: 10px;
-    outline: none;
-}
-.guess-input:focus {
-    border-color: #d40000;
+    margin-top: 16px;
+    font-size: 11px;
+    color: #555;
 }
 
+/* ===== بخش قیمت ===== */
 .price-box {
-    background: linear-gradient(160deg, rgba(25, 5, 5, 0.98), rgba(10, 2, 2, 0.99));
-    border: 1px solid rgba(160, 20, 20, 0.4);
-    border-radius: 18px;
-    padding: 20px 16px;
-    margin-bottom: 16px;
+    background: linear-gradient(145deg, rgba(40,10,10,0.9), rgba(20,5,5,0.95));
+    border: 1px solid rgba(255,50,50,0.35);
+    border-radius: 16px;
+    padding: 18px 16px;
+    margin-bottom: 14px;
+    box-shadow: 0 0 25px rgba(180,0,0,0.15);
 }
+
 .price-title {
     text-align: center;
     font-size: 15px;
     font-weight: 700;
-    color: #ff3a3a;
-    margin-bottom: 16px;
+    color: #ff5555;
+    margin-bottom: 14px;
 }
+
 .days-display {
     text-align: center;
-    font-size: 48px;
+    font-size: 42px;
     font-weight: 800;
     color: #fff;
+    margin: 8px 0 4px;
 }
+
 .days-label {
     text-align: center;
     font-size: 13px;
-    color: #777;
-    margin-bottom: 18px;
+    color: #aaa;
+    margin-bottom: 16px;
 }
+
 .slider-wrap {
-    padding: 0 8px;
-    margin-bottom: 18px;
+    padding: 0 6px;
+    margin-bottom: 16px;
 }
+
 input[type=range] {
     width: 100%;
     height: 8px;
     -webkit-appearance: none;
-    background: #1a1a1a;
+    background: #333;
     border-radius: 10px;
     outline: none;
 }
+
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 24px;
-    height: 24px;
-    background: linear-gradient(135deg, #d40000, #8a0000);
+    width: 22px;
+    height: 22px;
+    background: linear-gradient(135deg, #ff2222, #cc0000);
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 0 12px rgba(200, 30, 30, 0.6);
+    box-shadow: 0 0 10px rgba(255,50,50,0.5);
 }
+
 .quick-days {
     display: flex;
-    gap: 7px;
+    gap: 6px;
     justify-content: center;
     flex-wrap: wrap;
     margin-bottom: 18px;
 }
+
 .quick-days button {
-    background: rgba(90, 0, 0, 0.3);
-    border: 1px solid rgba(140, 0, 0, 0.4);
-    color: #ccc;
-    padding: 8px 13px;
+    background: rgba(180,0,0,0.2);
+    border: 1px solid rgba(255,50,50,0.3);
+    color: #ddd;
+    padding: 7px 12px;
     border-radius: 20px;
     font-size: 12px;
     font-weight: 600;
 }
+
 .quick-days button.active {
-    background: linear-gradient(90deg, #5a0000, #d40000);
+    background: linear-gradient(90deg, #8b0000, #ff2222);
     border-color: transparent;
     color: #fff;
 }
+
 .price-result {
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 14px;
-    padding: 16px;
+    background: rgba(0,0,0,0.4);
+    border-radius: 12px;
+    padding: 14px;
     text-align: center;
+    margin-bottom: 6px;
 }
+
 .price-result .label {
     font-size: 12px;
-    color: #777;
+    color: #999;
     margin-bottom: 4px;
 }
+
 .price-result .amount {
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 800;
-    color: #ff2a2a;
+    color: #ff4444;
 }
+
 .price-result .unit {
     font-size: 13px;
-    color: #777;
+    color: #aaa;
 }
 
 .unlimited-card {
-    background: linear-gradient(135deg, rgba(120, 0, 0, 0.3), rgba(40, 0, 0, 0.4));
-    border: 1px solid rgba(180, 40, 40, 0.45);
-    border-radius: 16px;
-    padding: 18px;
+    background: linear-gradient(135deg, rgba(180,0,0,0.25), rgba(80,0,0,0.3));
+    border: 1px solid rgba(255,80,80,0.4);
+    border-radius: 14px;
+    padding: 16px;
     text-align: center;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
     position: relative;
     overflow: hidden;
 }
+
 .unlimited-card::before {
     content: "👑";
     position: absolute;
-    top: -12px;
-    left: -12px;
-    font-size: 70px;
-    opacity: 0.07;
+    top: -10px;
+    left: -10px;
+    font-size: 60px;
+    opacity: 0.1;
 }
+
 .unlimited-title {
     font-size: 15px;
     font-weight: 700;
     color: #ffcc00;
     margin-bottom: 6px;
 }
+
 .unlimited-price {
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 800;
     color: #fff;
     margin-bottom: 4px;
 }
+
 .unlimited-desc {
     font-size: 12px;
-    color: #999;
+    color: #bbb;
 }
 
 .buy-box {
-    background: rgba(12, 12, 12, 0.95);
-    border: 1px solid rgba(100, 0, 0, 0.35);
-    border-radius: 16px;
-    padding: 18px;
+    background: rgba(20,20,20,0.9);
+    border: 1px solid rgba(180,0,0,0.3);
+    border-radius: 14px;
+    padding: 16px;
     text-align: center;
-}
-.buy-box p {
-    font-size: 13px;
-    color: #aaa;
-    margin-bottom: 14px;
-    line-height: 1.6;
-}
-.buy-box a {
-    display: inline-block;
-    background: linear-gradient(90deg, #5a0000, #d40000);
-    color: #fff;
-    padding: 13px 32px;
-    border-radius: 30px;
-    font-weight: 700;
-    font-size: 15px;
-    text-decoration: none;
-    box-shadow: 0 4px 18px rgba(140, 0, 0, 0.45);
 }
 
-.footer {
-    text-align: center;
-    margin-top: 18px;
-    font-size: 11px;
-    color: #333;
+.buy-box p {
+    font-size: 13px;
+    color: #ccc;
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.buy-box a {
+    display: inline-block;
+    background: linear-gradient(90deg, #8b0000, #ff2222);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(180,0,0,0.4);
 }
 </style>
 </head>
@@ -519,6 +524,7 @@ input[type=range]::-webkit-slider-thumb {
 
 <div class="container">
 
+    <!-- صفحه ۱ -->
     <div class="page show" id="p1">
         <div class="header">
             <div class="logo">⚡</div>
@@ -565,12 +571,14 @@ input[type=range]::-webkit-slider-thumb {
         <div class="footer">صفحه ۱ از ۵</div>
     </div>
 
+    <!-- صفحه ۲ -->
     <div class="page" id="p2">
         <div class="header">
             <div class="logo">🛠</div>
             <div class="title">قابلیت‌های اصلی</div>
             <div class="subtitle">مدیریت کامل گروه</div>
         </div>
+
         <div class="card">
             <div class="row"><div class="icon">1</div><div><h4>پنل ادمین و هویت</h4><p>مدیریت ادمین‌ها</p></div></div>
             <div class="row"><div class="icon">2</div><div><h4>مدیریت گروه</h4><p>کنترل تنظیمات</p></div></div>
@@ -590,12 +598,14 @@ input[type=range]::-webkit-slider-thumb {
         <div class="footer">صفحه ۲ از ۵</div>
     </div>
 
+    <!-- صفحه ۳ -->
     <div class="page" id="p3">
         <div class="header">
             <div class="logo">👑</div>
             <div class="title">۲۲ سلاح پرو</div>
             <div class="subtitle">PRO UNLOCK</div>
         </div>
+
         <div class="card">
             <div class="row"><div class="icon">👑</div><div><h4>محافظ ادمین <span class="pro">PRO</span></h4><p>محافظت ویژه</p></div></div>
             <div class="row"><div class="icon">⚖️</div><div><h4>دادگاه گروهی <span class="pro">PRO</span></h4><p>سیستم قضاوت</p></div></div>
@@ -617,17 +627,18 @@ input[type=range]::-webkit-slider-thumb {
         <div class="footer">صفحه ۳ از ۵</div>
     </div>
 
+    <!-- صفحه ۴ - بازی -->
     <div class="page" id="p4">
         <div class="header">
             <div class="logo">🎮</div>
             <div class="title">مینی‌گیم‌ها</div>
-            <div class="subtitle">۶ بازی خفن</div>
+            <div class="subtitle">سه بازی خفن</div>
         </div>
 
         <div class="game">
             <h3>⚡ چالش سرعت</h3>
             <p>وقتی سبز شد سریع ضربه بزن</p>
-            <div id="box" class="ready" onclick="doReaction()" ontouchstart="doReaction(); event.preventDefault();">برای شروع ضربه بزن</div>
+            <div id="box" class="ready" onclick="doReaction()">برای شروع ضربه بزن</div>
             <div id="result"></div>
         </div>
 
@@ -643,43 +654,13 @@ input[type=range]::-webkit-slider-thumb {
             <h3>🧠 حافظه</h3>
             <p>کارت‌های مشابه رو پیدا کن</p>
             <div class="memory" id="memory"></div>
-            <div id="mres" class="game-result"></div>
-        </div>
-
-        <div class="game">
-            <h3>🎯 حدس عدد</h3>
-            <p>عددی بین ۱ تا ۱۰۰ حدس بزن</p>
-            <input type="number" class="guess-input" id="guessInput" placeholder="عدد رو وارد کن" min="1" max="100">
-            <div class="game-btns">
-                <button onclick="checkGuess()">حدس بزن</button>
-                <button onclick="newGuess()">شروع دوباره</button>
-            </div>
-            <div id="guessResult" class="game-result"></div>
-        </div>
-
-        <div class="game">
-            <h3>✊ سنگ کاغذ قیچی</h3>
-            <p>انتخاب کن و با ربات مسابقه بده</p>
-            <div class="game-btns">
-                <button onclick="playRPS('سنگ')">✊ سنگ</button>
-                <button onclick="playRPS('کاغذ')">✋ کاغذ</button>
-                <button onclick="playRPS('قیچی')">✌️ قیچی</button>
-            </div>
-            <div id="rpsResult" class="game-result"></div>
-        </div>
-
-        <div class="game">
-            <h3>🎲 تاس شانس</h3>
-            <p>تاس بنداز و شانس بیار</p>
-            <div class="game-btns">
-                <button onclick="rollDice()">🎲 بنداز</button>
-            </div>
-            <div id="diceResult" class="game-result"></div>
+            <div id="mres" style="text-align:center;margin-top:8px;color:#ff6666;font-size:13px;"></div>
         </div>
 
         <div class="footer">صفحه ۴ از ۵</div>
     </div>
 
+    <!-- صفحه ۵ - قیمت اشتراک -->
     <div class="page" id="p5">
         <div class="header">
             <div class="logo">💎</div>
@@ -689,11 +670,14 @@ input[type=range]::-webkit-slider-thumb {
 
         <div class="price-box">
             <div class="price-title">📅 انتخاب مدت اشتراک</div>
+            
             <div class="days-display" id="daysNum">7</div>
             <div class="days-label">روز</div>
+
             <div class="slider-wrap">
                 <input type="range" id="daysSlider" min="1" max="30" value="7" oninput="updatePrice()">
             </div>
+
             <div class="quick-days">
                 <button onclick="setDays(1)">۱ روز</button>
                 <button onclick="setDays(3)">۳ روز</button>
@@ -701,6 +685,7 @@ input[type=range]::-webkit-slider-thumb {
                 <button onclick="setDays(15)">۱۵ روز</button>
                 <button onclick="setDays(30)">۳۰ روز</button>
             </div>
+
             <div class="price-result">
                 <div class="label">مبلغ قابل پرداخت</div>
                 <div class="amount" id="priceAmount">۲۸,۰۰۰</div>
@@ -710,5 +695,59 @@ input[type=range]::-webkit-slider-thumb {
 
         <div class="unlimited-card">
             <div class="unlimited-title">👑 اشتراک نامحدود</div>
-            <div class="unlimited-price">۲۵۰,۰۰۰ تومان</div>
-            <div class="unlimited-desc">یک‌
+            <div class="unlimited-price">۱۵۰,۰۰۰ تومان</div>
+            <div class="unlimited-desc">یک‌بار پرداخت • دسترسی دائمی به همه قابلیت‌های پرو</div>
+        </div>
+
+        <div class="buy-box">
+            <p>
+                برای خرید اشتراک پرو<br>
+                به آیدی زیر پیام بدید
+            </p>
+            <a href="https://splus.ir/WRATH_HaMi">@WRATH_HaMi</a>
+        </div>
+
+        <div class="footer">صفحه ۵ از ۵</div>
+    </div>
+
+</div>
+
+<!-- دکمه‌های پایین -->
+<div class="nav">
+    <button id="b1" class="active" onclick="show(1)"><span>🏠</span>خانه</button>
+    <button id="b2" onclick="show(2)"><span>🛠</span>اصلی</button>
+    <button id="b3" onclick="show(3)"><span>👑</span>پرو</button>
+    <button id="b4" onclick="show(4)"><span>🎮</span>بازی</button>
+    <button id="b5" onclick="show(5)"><span>💎</span>قیمت</button>
+</div>
+
+<script>
+function show(n) {
+    document.getElementById('p1').classList.remove('show');
+    document.getElementById('p2').classList.remove('show');
+    document.getElementById('p3').classList.remove('show');
+    document.getElementById('p4').classList.remove('show');
+    document.getElementById('p5').classList.remove('show');
+
+    document.getElementById('b1').classList.remove('active');
+    document.getElementById('b2').classList.remove('active');
+    document.getElementById('b3').classList.remove('active');
+    document.getElementById('b4').classList.remove('active');
+    document.getElementById('b5').classList.remove('active');
+
+    document.getElementById('p' + n).classList.add('show');
+    document.getElementById('b' + n).classList.add('active');
+
+    window.scrollTo(0, 0);
+
+    if (n === 4) {
+        setTimeout(startMem, 50);
+    }
+}
+
+// ===== قیمت =====
+const PRICE_PER_DAY = 4000;
+
+function updatePrice() {
+    const days = parseInt(document.getElementById('daysSlider').value);
+    document.getElementById('
