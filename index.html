@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -22,7 +23,6 @@ body {
     overflow-x: hidden;
 }
 
-/* بک‌گراند مشکی + قرمز + سفید */
 .bg {
     position: fixed;
     inset: 0;
@@ -40,7 +40,6 @@ body {
     padding: 16px 14px 95px;
 }
 
-/* ناوبری پایین */
 .nav {
     position: fixed;
     bottom: 0;
@@ -63,7 +62,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 3px;
-    padding: 6px 10px;
+    padding: 6px 8px;
     border-radius: 10px;
 }
 
@@ -76,7 +75,6 @@ body {
     font-size: 18px;
 }
 
-/* صفحات */
 .page {
     display: none;
 }
@@ -84,7 +82,6 @@ body {
     display: block;
 }
 
-/* هدر */
 .header {
     text-align: center;
     margin-bottom: 20px;
@@ -117,7 +114,6 @@ body {
     margin-top: 3px;
 }
 
-/* کارت */
 .card {
     background: rgba(20, 20, 20, 0.8);
     border: 1px solid rgba(180, 0, 0, 0.25);
@@ -136,7 +132,6 @@ body {
     color: #ff4444;
 }
 
-/* گرید */
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -159,7 +154,6 @@ body {
     margin-bottom: 3px;
 }
 
-/* لیست */
 .row {
     display: flex;
     gap: 10px;
@@ -202,7 +196,6 @@ body {
     margin-left: 4px;
 }
 
-/* تیم */
 .team {
     display: flex;
     justify-content: space-between;
@@ -225,7 +218,6 @@ body {
     font-weight: 600;
 }
 
-/* دکمه */
 .btn {
     display: block;
     text-align: center;
@@ -248,7 +240,6 @@ body {
     border: 1px solid rgba(180, 0, 0, 0.3);
 }
 
-/* بازی */
 .game {
     background: rgba(20, 20, 20, 0.8);
     border: 1px solid rgba(180, 0, 0, 0.25);
@@ -354,6 +345,178 @@ body {
     font-size: 11px;
     color: #555;
 }
+
+/* ===== بخش قیمت ===== */
+.price-box {
+    background: linear-gradient(145deg, rgba(40,10,10,0.9), rgba(20,5,5,0.95));
+    border: 1px solid rgba(255,50,50,0.35);
+    border-radius: 16px;
+    padding: 18px 16px;
+    margin-bottom: 14px;
+    box-shadow: 0 0 25px rgba(180,0,0,0.15);
+}
+
+.price-title {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    color: #ff5555;
+    margin-bottom: 14px;
+}
+
+.days-display {
+    text-align: center;
+    font-size: 42px;
+    font-weight: 800;
+    color: #fff;
+    margin: 8px 0 4px;
+}
+
+.days-label {
+    text-align: center;
+    font-size: 13px;
+    color: #aaa;
+    margin-bottom: 16px;
+}
+
+.slider-wrap {
+    padding: 0 6px;
+    margin-bottom: 16px;
+}
+
+input[type=range] {
+    width: 100%;
+    height: 8px;
+    -webkit-appearance: none;
+    background: #333;
+    border-radius: 10px;
+    outline: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    background: linear-gradient(135deg, #ff2222, #cc0000);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255,50,50,0.5);
+}
+
+.quick-days {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+}
+
+.quick-days button {
+    background: rgba(180,0,0,0.2);
+    border: 1px solid rgba(255,50,50,0.3);
+    color: #ddd;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.quick-days button.active {
+    background: linear-gradient(90deg, #8b0000, #ff2222);
+    border-color: transparent;
+    color: #fff;
+}
+
+.price-result {
+    background: rgba(0,0,0,0.4);
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+.price-result .label {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 4px;
+}
+
+.price-result .amount {
+    font-size: 28px;
+    font-weight: 800;
+    color: #ff4444;
+}
+
+.price-result .unit {
+    font-size: 13px;
+    color: #aaa;
+}
+
+.unlimited-card {
+    background: linear-gradient(135deg, rgba(180,0,0,0.25), rgba(80,0,0,0.3));
+    border: 1px solid rgba(255,80,80,0.4);
+    border-radius: 14px;
+    padding: 16px;
+    text-align: center;
+    margin-bottom: 14px;
+    position: relative;
+    overflow: hidden;
+}
+
+.unlimited-card::before {
+    content: "👑";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    font-size: 60px;
+    opacity: 0.1;
+}
+
+.unlimited-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffcc00;
+    margin-bottom: 6px;
+}
+
+.unlimited-price {
+    font-size: 26px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.unlimited-desc {
+    font-size: 12px;
+    color: #bbb;
+}
+
+.buy-box {
+    background: rgba(20,20,20,0.9);
+    border: 1px solid rgba(180,0,0,0.3);
+    border-radius: 14px;
+    padding: 16px;
+    text-align: center;
+}
+
+.buy-box p {
+    font-size: 13px;
+    color: #ccc;
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.buy-box a {
+    display: inline-block;
+    background: linear-gradient(90deg, #8b0000, #ff2222);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(180,0,0,0.4);
+}
 </style>
 </head>
 <body>
@@ -406,7 +569,7 @@ body {
         <a class="btn btn1" href="https://splus.ir/WRATHBOT">ورود به کانال رسمی</a>
         <a class="btn btn2" href="https://splus.ir/WRATH_HaMi">ارتباط با سازنده</a>
 
-        <div class="footer">صفحه ۱ از ۴</div>
+        <div class="footer">صفحه ۱ از ۵</div>
     </div>
 
     <!-- صفحه ۲ -->
@@ -433,7 +596,7 @@ body {
             <div class="row"><div class="icon">13</div><div><h4>مترجم و مهمانی</h4><p>ترجمه + مهمانی</p></div></div>
             <div class="row"><div class="icon">14</div><div><h4>لقب و بکاپ</h4><p>لقب + پشتیبان‌گیری</p></div></div>
         </div>
-        <div class="footer">صفحه ۲ از ۴</div>
+        <div class="footer">صفحه ۲ از ۵</div>
     </div>
 
     <!-- صفحه ۳ -->
@@ -462,10 +625,10 @@ body {
             <div class="row"><div class="icon">🎮</div><div><h4>تایم بازی <span class="pro">PRO</span></h4><p>زمان‌بندی</p></div></div>
             <div class="row"><div class="icon">👑</div><div><h4>امپراتور <span class="pro">PRO</span></h4><p>بن هوشمند</p></div></div>
         </div>
-        <div class="footer">صفحه ۳ از ۴</div>
+        <div class="footer">صفحه ۳ از ۵</div>
     </div>
 
-    <!-- صفحه ۴ -->
+    <!-- صفحه ۴ - بازی -->
     <div class="page" id="p4">
         <div class="header">
             <div class="logo">🎮</div>
@@ -495,7 +658,57 @@ body {
             <div id="mres" style="text-align:center;margin-top:8px;color:#ff6666;font-size:13px;"></div>
         </div>
 
-        <div class="footer">صفحه ۴ از ۴</div>
+        <div class="footer">صفحه ۴ از ۵</div>
+    </div>
+
+    <!-- صفحه ۵ - قیمت اشتراک -->
+    <div class="page" id="p5">
+        <div class="header">
+            <div class="logo">💎</div>
+            <div class="title">اشتراک پرو</div>
+            <div class="subtitle">قیمت‌گذاری هوشمند</div>
+        </div>
+
+        <div class="price-box">
+            <div class="price-title">📅 انتخاب مدت اشتراک</div>
+            
+            <div class="days-display" id="daysNum">7</div>
+            <div class="days-label">روز</div>
+
+            <div class="slider-wrap">
+                <input type="range" id="daysSlider" min="1" max="30" value="7" oninput="updatePrice()">
+            </div>
+
+            <div class="quick-days">
+                <button onclick="setDays(1)">۱ روز</button>
+                <button onclick="setDays(3)">۳ روز</button>
+                <button class="active" onclick="setDays(7)">۷ روز</button>
+                <button onclick="setDays(15)">۱۵ روز</button>
+                <button onclick="setDays(30)">۳۰ روز</button>
+            </div>
+
+            <div class="price-result">
+                <div class="label">مبلغ قابل پرداخت</div>
+                <div class="amount" id="priceAmount">۲۸,۰۰۰</div>
+                <div class="unit">تومان</div>
+            </div>
+        </div>
+
+        <div class="unlimited-card">
+            <div class="unlimited-title">👑 اشتراک نامحدود</div>
+            <div class="unlimited-price">۱۵۰,۰۰۰ تومان</div>
+            <div class="unlimited-desc">یک‌بار پرداخت • دسترسی دائمی به همه قابلیت‌های پرو</div>
+        </div>
+
+        <div class="buy-box">
+            <p>
+                برای خرید اشتراک پرو<br>
+                به آیدی زیر پیام بدید
+            </p>
+            <a href="https://splus.ir/WRATH_HaMi">@WRATH_HaMi</a>
+        </div>
+
+        <div class="footer">صفحه ۵ از ۵</div>
     </div>
 
 </div>
@@ -506,23 +719,23 @@ body {
     <button id="b2" onclick="show(2)"><span>🛠</span>اصلی</button>
     <button id="b3" onclick="show(3)"><span>👑</span>پرو</button>
     <button id="b4" onclick="show(4)"><span>🎮</span>بازی</button>
+    <button id="b5" onclick="show(5)"><span>💎</span>قیمت</button>
 </div>
 
 <script>
 function show(n) {
-    // همه صفحات رو مخفی کن
     document.getElementById('p1').classList.remove('show');
     document.getElementById('p2').classList.remove('show');
     document.getElementById('p3').classList.remove('show');
     document.getElementById('p4').classList.remove('show');
+    document.getElementById('p5').classList.remove('show');
 
-    // همه دکمه‌ها رو خاموش کن
     document.getElementById('b1').classList.remove('active');
     document.getElementById('b2').classList.remove('active');
     document.getElementById('b3').classList.remove('active');
     document.getElementById('b4').classList.remove('active');
+    document.getElementById('b5').classList.remove('active');
 
-    // صفحه و دکمه مورد نظر رو روشن کن
     document.getElementById('p' + n).classList.add('show');
     document.getElementById('b' + n).classList.add('active');
 
@@ -531,6 +744,35 @@ function show(n) {
     if (n === 4) {
         setTimeout(startMem, 50);
     }
+}
+
+// ===== قیمت =====
+const PRICE_PER_DAY = 4000;
+
+function updatePrice() {
+    const days = parseInt(document.getElementById('daysSlider').value);
+    document.getElementById('daysNum').innerText = days;
+    
+    const total = days * PRICE_PER_DAY;
+    document.getElementById('priceAmount').innerText = total.toLocaleString('fa-IR');
+
+    // آپدیت دکمه‌های سریع
+    document.querySelectorAll('.quick-days button').forEach(btn => {
+        btn.classList.remove('active');
+    });
+}
+
+function setDays(d) {
+    document.getElementById('daysSlider').value = d;
+    updatePrice();
+    
+    // فعال کردن دکمه مربوطه
+    document.querySelectorAll('.quick-days button').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.innerText.includes(d + ' روز') || (d === 1 && btn.innerText.includes('۱ روز'))) {
+            btn.classList.add('active');
+        }
+    });
 }
 
 // ===== بازی سرعت =====
@@ -672,6 +914,7 @@ function flip(c) {
 }
 
 startMem();
+updatePrice();
 </script>
 </body>
 </html>
